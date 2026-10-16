@@ -1,0 +1,34 @@
+{
+  "name": "jojo-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Suivi d'avancement anti-spoil pour l'anime JoJo's Bizarre Adventure",
+  "type": "module",
+  "packageManager": "pnpm@10.34.6",
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter @jojo/api --filter @jojo/web dev",
+    "build": "pnpm --filter @jojo/web build && pnpm --filter @jojo/api build",
+    "lint": "eslint . --max-warnings=0 && prettier --check .",
+    "format": "prettier --write .",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm --filter @jojo/web build && vitest run",
+    "test:e2e": "pnpm --filter @jojo/web test:e2e",
+    "db:generate": "pnpm --filter @jojo/api db:generate"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "24.19.0",
+    "eslint": "10.11.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-react-refresh": "0.5.7",
+    "globals": "17.13.0",
+    "prettier": "3.9.9",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.71.0",
+    "vitest": "5.0.3"
+  }
+}
