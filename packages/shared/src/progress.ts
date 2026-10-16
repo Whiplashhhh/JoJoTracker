@@ -68,9 +68,7 @@ export function computePartProgress(
 }
 
 export type NextStep<T extends ProgressEpisode> =
-  | { kind: 'episode'; episode: T }
-  | { kind: 'upcoming'; episode: T }
-  | { kind: 'done' };
+  { kind: 'episode'; episode: T } | { kind: 'upcoming'; episode: T } | { kind: 'done' };
 
 /**
  * Prochaine étape : le premier épisode diffusé non vu dans l'ordre (partie, numéro).

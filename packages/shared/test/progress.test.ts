@@ -92,15 +92,7 @@ describe('nextStep', () => {
 });
 
 describe('previousUnwatched', () => {
-  const eps = [
-    ep(1, 1, true),
-    ep(1, 2),
-    ep(2, 1),
-    ep(2, 2, true),
-    ep(2, 3),
-    ep(2, 4),
-    ep(3, 1),
-  ];
+  const eps = [ep(1, 1, true), ep(1, 2), ep(2, 1), ep(2, 2, true), ep(2, 3), ep(2, 4), ep(3, 1)];
   it('liste les épisodes non vus précédents, dans la partie et les parties précédentes', () => {
     expect(previousUnwatched(eps, 'p2-e4', TODAY).map((e) => e.id)).toEqual([
       'p1-e2',

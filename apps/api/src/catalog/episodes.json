@@ -1,0 +1,2083 @@
+{
+  "parts": [
+    {
+      "number": 1,
+      "name": "Phantom Blood",
+      "seasons": []
+    },
+    {
+      "number": 2,
+      "name": "Battle Tendency",
+      "seasons": []
+    },
+    {
+      "number": 3,
+      "name": "Stardust Crusaders",
+      "seasons": [
+        {
+          "key": "stardust-crusaders",
+          "name": "Stardust Crusaders"
+        },
+        {
+          "key": "battle-in-egypt",
+          "name": "Battle in Egypt"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Diamond is Unbreakable",
+      "seasons": []
+    },
+    {
+      "number": 5,
+      "name": "Golden Wind",
+      "seasons": []
+    },
+    {
+      "number": 6,
+      "name": "Stone Ocean",
+      "seasons": [
+        {
+          "key": "stone-ocean-1",
+          "name": "Stone Ocean (épisodes 1–12)"
+        },
+        {
+          "key": "stone-ocean-2",
+          "name": "Stone Ocean (épisodes 13–24)"
+        },
+        {
+          "key": "stone-ocean-3",
+          "name": "Stone Ocean (épisodes 25–38)"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Steel Ball Run",
+      "seasons": []
+    }
+  ],
+  "episodes": [
+    {
+      "id": "p1-e1",
+      "partNumber": 1,
+      "season": null,
+      "numberInPart": 1,
+      "officialNumber": 1,
+      "titleFr": "Dio l'envahisseur",
+      "titleEn": "Dio the Invader",
+      "airDate": "2012-10-06"
+    },
+    {
+      "id": "p1-e2",
+      "partNumber": 1,
+      "season": null,
+      "numberInPart": 2,
+      "officialNumber": 2,
+      "titleFr": "Une lettre du passé",
+      "titleEn": "A Letter from the Past",
+      "airDate": "2012-10-13"
+    },
+    {
+      "id": "p1-e3",
+      "partNumber": 1,
+      "season": null,
+      "numberInPart": 3,
+      "officialNumber": 3,
+      "titleFr": "Adolescence avec Dio",
+      "titleEn": "Youth with Dio",
+      "airDate": "2012-10-20"
+    },
+    {
+      "id": "p1-e4",
+      "partNumber": 1,
+      "season": null,
+      "numberInPart": 4,
+      "officialNumber": 4,
+      "titleFr": "Overdrive",
+      "titleEn": "Overdrive",
+      "airDate": "2012-10-27"
+    },
+    {
+      "id": "p1-e5",
+      "partNumber": 1,
+      "season": null,
+      "numberInPart": 5,
+      "officialNumber": 5,
+      "titleFr": "Chevaliers des ténèbres",
+      "titleEn": "The Dark Knights",
+      "airDate": "2012-11-03"
+    },
+    {
+      "id": "p1-e6",
+      "partNumber": 1,
+      "season": null,
+      "numberInPart": 6,
+      "officialNumber": 6,
+      "titleFr": "Courage du lendemain",
+      "titleEn": "Tomorrow's Courage",
+      "airDate": "2012-11-10"
+    },
+    {
+      "id": "p1-e7",
+      "partNumber": 1,
+      "season": null,
+      "numberInPart": 7,
+      "officialNumber": 7,
+      "titleFr": "Le successeur",
+      "titleEn": "Sorrowful Successor",
+      "airDate": "2012-11-17"
+    },
+    {
+      "id": "p1-e8",
+      "partNumber": 1,
+      "season": null,
+      "numberInPart": 8,
+      "officialNumber": 8,
+      "titleFr": "Le combat sanglant ! JoJo et Dio",
+      "titleEn": "Bloody Battle! JoJo & Dio",
+      "airDate": "2012-11-24"
+    },
+    {
+      "id": "p1-e9",
+      "partNumber": 1,
+      "season": null,
+      "numberInPart": 9,
+      "officialNumber": 9,
+      "titleFr": "La dernière Onde !",
+      "titleEn": "The Final Ripple!",
+      "airDate": "2012-12-01"
+    },
+    {
+      "id": "p2-e1",
+      "partNumber": 2,
+      "season": null,
+      "numberInPart": 1,
+      "officialNumber": 10,
+      "titleFr": "JoJo de New York",
+      "titleEn": "New York's JoJo",
+      "airDate": "2012-12-08"
+    },
+    {
+      "id": "p2-e2",
+      "partNumber": 2,
+      "season": null,
+      "numberInPart": 2,
+      "officialNumber": 11,
+      "titleFr": "Le virtuose du jeu",
+      "titleEn": "The Game Master",
+      "airDate": "2012-12-15"
+    },
+    {
+      "id": "p2-e3",
+      "partNumber": 2,
+      "season": null,
+      "numberInPart": 3,
+      "officialNumber": 12,
+      "titleFr": "L'homme du pilier",
+      "titleEn": "The Pillar Man",
+      "airDate": "2012-12-22"
+    },
+    {
+      "id": "p2-e4",
+      "partNumber": 2,
+      "season": null,
+      "numberInPart": 4,
+      "officialNumber": 13,
+      "titleFr": "JoJo contre la créature ultime",
+      "titleEn": "JoJo vs. the Ultimate Lifeform",
+      "airDate": "2013-01-05"
+    },
+    {
+      "id": "p2-e5",
+      "partNumber": 2,
+      "season": null,
+      "numberInPart": 5,
+      "officialNumber": 14,
+      "titleFr": "Guerriers d'élite ancestraux",
+      "titleEn": "Ultimate Warriors from Ancient Times",
+      "airDate": "2013-01-12"
+    },
+    {
+      "id": "p2-e6",
+      "partNumber": 2,
+      "season": null,
+      "numberInPart": 6,
+      "officialNumber": 15,
+      "titleFr": "L'aptitude des héros",
+      "titleEn": "A Hero's Proof",
+      "airDate": "2013-01-19"
+    },
+    {
+      "id": "p2-e7",
+      "partNumber": 2,
+      "season": null,
+      "numberInPart": 7,
+      "officialNumber": 16,
+      "titleFr": "Lisa Lisa, coach des Ondes",
+      "titleEn": "Lisa Lisa, Hamon Coach",
+      "airDate": "2013-01-26"
+    },
+    {
+      "id": "p2-e8",
+      "partNumber": 2,
+      "season": null,
+      "numberInPart": 8,
+      "officialNumber": 17,
+      "titleFr": "Le piège parfait !",
+      "titleEn": "The Deeper Plan",
+      "airDate": "2013-02-02"
+    },
+    {
+      "id": "p2-e9",
+      "partNumber": 2,
+      "season": null,
+      "numberInPart": 9,
+      "officialNumber": 18,
+      "titleFr": "Stroheim contre-attaque",
+      "titleEn": "Von Stroheim's Revenge",
+      "airDate": "2013-02-09"
+    },
+    {
+      "id": "p2-e10",
+      "partNumber": 2,
+      "season": null,
+      "numberInPart": 10,
+      "officialNumber": 19,
+      "titleFr": "Ruée vers la falaise de la mort",
+      "titleEn": "A Race Toward the Brink",
+      "airDate": "2013-02-16"
+    },
+    {
+      "id": "p2-e11",
+      "partNumber": 2,
+      "season": null,
+      "numberInPart": 11,
+      "officialNumber": 20,
+      "titleFr": "La jeunesse solitaire de Caesar",
+      "titleEn": "Young Caesar",
+      "airDate": "2013-02-23"
+    },
+    {
+      "id": "p2-e12",
+      "partNumber": 2,
+      "season": null,
+      "numberInPart": 12,
+      "officialNumber": 21,
+      "titleFr": "Cent contre deux",
+      "titleEn": "A Hundred Against Two",
+      "airDate": "2013-03-02"
+    },
+    {
+      "id": "p2-e13",
+      "partNumber": 2,
+      "season": null,
+      "numberInPart": 13,
+      "officialNumber": 22,
+      "titleFr": "Un véritable guerrier !",
+      "titleEn": "A True Warrior",
+      "airDate": "2013-03-09"
+    },
+    {
+      "id": "p2-e14",
+      "partNumber": 2,
+      "season": null,
+      "numberInPart": 14,
+      "officialNumber": 23,
+      "titleFr": "Le guerrier du vent",
+      "titleEn": "The Warrior of Wind",
+      "airDate": "2013-03-16"
+    },
+    {
+      "id": "p2-e15",
+      "partNumber": 2,
+      "season": null,
+      "numberInPart": 15,
+      "officialNumber": 24,
+      "titleFr": "Les liens qui unissent JoJo",
+      "titleEn": null,
+      "airDate": "2013-03-23"
+    },
+    {
+      "id": "p2-e16",
+      "partNumber": 2,
+      "season": null,
+      "numberInPart": 16,
+      "officialNumber": 25,
+      "titleFr": "La naissance de l'être suprême !",
+      "titleEn": null,
+      "airDate": "2013-03-30"
+    },
+    {
+      "id": "p2-e17",
+      "partNumber": 2,
+      "season": null,
+      "numberInPart": 17,
+      "officialNumber": 26,
+      "titleFr": "L'homme qui devint un dieu !",
+      "titleEn": "The Ascendant One",
+      "airDate": "2013-04-06"
+    },
+    {
+      "id": "p3-e1",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 1,
+      "officialNumber": 1,
+      "titleFr": "Le possédé",
+      "titleEn": "A Man Possessed by an Evil Spirit",
+      "airDate": "2014-04-05"
+    },
+    {
+      "id": "p3-e2",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 2,
+      "officialNumber": 2,
+      "titleFr": "Qui rendra le jugement ?",
+      "titleEn": "Who Will Be the Judge?!",
+      "airDate": "2014-04-12"
+    },
+    {
+      "id": "p3-e3",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 3,
+      "officialNumber": 3,
+      "titleFr": "Le maléfice de Dio",
+      "titleEn": "DIO's Curse",
+      "airDate": "2014-04-19"
+    },
+    {
+      "id": "p3-e4",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 4,
+      "officialNumber": 4,
+      "titleFr": "Tower of Gray",
+      "titleEn": "Tower of Gray",
+      "airDate": "2014-04-26"
+    },
+    {
+      "id": "p3-e5",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 5,
+      "officialNumber": 5,
+      "titleFr": "Silver Chariot",
+      "titleEn": "Silver Chariot",
+      "airDate": "2014-05-03"
+    },
+    {
+      "id": "p3-e6",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 6,
+      "officialNumber": 6,
+      "titleFr": "Dark Blue Moon",
+      "titleEn": "Dark Blue Moon",
+      "airDate": "2014-05-10"
+    },
+    {
+      "id": "p3-e7",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 7,
+      "officialNumber": 7,
+      "titleFr": "Strength",
+      "titleEn": "Strength",
+      "airDate": "2014-05-17"
+    },
+    {
+      "id": "p3-e8",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 8,
+      "officialNumber": 8,
+      "titleFr": "Devil",
+      "titleEn": "Devil",
+      "airDate": "2014-05-24"
+    },
+    {
+      "id": "p3-e9",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 9,
+      "officialNumber": 9,
+      "titleFr": "Yellow Temperence",
+      "titleEn": "Yellow Temperance",
+      "airDate": "2014-05-31"
+    },
+    {
+      "id": "p3-e10",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 10,
+      "officialNumber": 10,
+      "titleFr": "Emperor et Hanged Man - Partie 1",
+      "titleEn": "Emperor and Hanged Man, Part 1",
+      "airDate": "2014-06-07"
+    },
+    {
+      "id": "p3-e11",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 11,
+      "officialNumber": 11,
+      "titleFr": "Emperor et Hanged Man - Partie 2",
+      "titleEn": "Emperor and Hanged Man, Part 2",
+      "airDate": "2014-06-14"
+    },
+    {
+      "id": "p3-e12",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 12,
+      "officialNumber": 12,
+      "titleFr": "Empress",
+      "titleEn": "Empress",
+      "airDate": "2014-06-21"
+    },
+    {
+      "id": "p3-e13",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 13,
+      "officialNumber": 13,
+      "titleFr": "Wheel of Fortune",
+      "titleEn": "Wheel of Fortune",
+      "airDate": "2014-06-28"
+    },
+    {
+      "id": "p3-e14",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 14,
+      "officialNumber": 14,
+      "titleFr": "Justice - Partie 1",
+      "titleEn": "Justice, Part 1",
+      "airDate": "2014-07-05"
+    },
+    {
+      "id": "p3-e15",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 15,
+      "officialNumber": 15,
+      "titleFr": "Justice - Partie 2",
+      "titleEn": "Justice, Part 2",
+      "airDate": "2014-07-12"
+    },
+    {
+      "id": "p3-e16",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 16,
+      "officialNumber": 16,
+      "titleFr": "Lovers - Partie 1",
+      "titleEn": "Lovers, Part 1",
+      "airDate": "2014-07-19"
+    },
+    {
+      "id": "p3-e17",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 17,
+      "officialNumber": 17,
+      "titleFr": "Lovers - Partie 2",
+      "titleEn": "Lovers, Part 2",
+      "airDate": "2014-07-26"
+    },
+    {
+      "id": "p3-e18",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 18,
+      "officialNumber": 18,
+      "titleFr": "The Sun",
+      "titleEn": "Sun",
+      "airDate": "2014-08-02"
+    },
+    {
+      "id": "p3-e19",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 19,
+      "officialNumber": 19,
+      "titleFr": "Death 13 - Partie 1",
+      "titleEn": "Death Thirteen, Part 1",
+      "airDate": "2014-08-09"
+    },
+    {
+      "id": "p3-e20",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 20,
+      "officialNumber": 20,
+      "titleFr": "Death 13 - Partie 2",
+      "titleEn": "Death Thirteen, Part 2",
+      "airDate": "2014-08-16"
+    },
+    {
+      "id": "p3-e21",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 21,
+      "officialNumber": 21,
+      "titleFr": "Judgement - Partie 1",
+      "titleEn": "Judgement, Part 1",
+      "airDate": "2014-08-23"
+    },
+    {
+      "id": "p3-e22",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 22,
+      "officialNumber": 22,
+      "titleFr": null,
+      "titleEn": "Judgement, Part 2",
+      "airDate": "2014-08-30"
+    },
+    {
+      "id": "p3-e23",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 23,
+      "officialNumber": 23,
+      "titleFr": "High Priestess - Partie 1",
+      "titleEn": "High Priestess, Part 1",
+      "airDate": "2014-09-06"
+    },
+    {
+      "id": "p3-e24",
+      "partNumber": 3,
+      "season": "stardust-crusaders",
+      "numberInPart": 24,
+      "officialNumber": 24,
+      "titleFr": "High Priestess - Partie 2",
+      "titleEn": "High Priestess, Part 2",
+      "airDate": "2014-09-13"
+    },
+    {
+      "id": "p3-e25",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 25,
+      "officialNumber": 25,
+      "titleFr": "Iggy (The Fool) et N'Doul (Geb), partie 1",
+      "titleEn": "\"The Fool\" Iggy and \"Geb\" N'Doul, Part 1",
+      "airDate": "2015-01-10"
+    },
+    {
+      "id": "p3-e26",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 26,
+      "officialNumber": 26,
+      "titleFr": "Iggy (The Fool) et N'Doul (Geb), partie 2",
+      "titleEn": "\"The Fool\" Iggy and \"Geb\" N'Doul, Part 2",
+      "airDate": "2015-01-17"
+    },
+    {
+      "id": "p3-e27",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 27,
+      "officialNumber": 27,
+      "titleFr": "Zenyatta (Khnum) et Mondatta (Thoth)",
+      "titleEn": "\"Khnum\" Oingo and \"Tohth\" Boingo",
+      "airDate": "2015-01-24"
+    },
+    {
+      "id": "p3-e28",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 28,
+      "officialNumber": 28,
+      "titleFr": "Anubis, partie 1",
+      "titleEn": "Anubis, Part 1",
+      "airDate": "2015-01-31"
+    },
+    {
+      "id": "p3-e29",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 29,
+      "officialNumber": 29,
+      "titleFr": "Anubis, partie 2",
+      "titleEn": "Anubis, Part 2",
+      "airDate": "2015-02-07"
+    },
+    {
+      "id": "p3-e30",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 30,
+      "officialNumber": 30,
+      "titleFr": "Mariah (Bast), partie 1",
+      "titleEn": "\"Bastet\" Mariah, Part 1",
+      "airDate": "2015-02-14"
+    },
+    {
+      "id": "p3-e31",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 31,
+      "officialNumber": 31,
+      "titleFr": "Mariah (Bast), partie 2",
+      "titleEn": "\"Bastet\" Mariah, Part 2",
+      "airDate": "2015-02-21"
+    },
+    {
+      "id": "p3-e32",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 32,
+      "officialNumber": 32,
+      "titleFr": "Alessi (Sethan) - Partie 1",
+      "titleEn": "\"Sethan\" Alessi, Part 1",
+      "airDate": "2015-02-28"
+    },
+    {
+      "id": "p3-e33",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 33,
+      "officialNumber": 33,
+      "titleFr": "Alessi (Sethan) - Partie 2",
+      "titleEn": "\"Sethan\" Alessi, Part 2",
+      "airDate": "2015-03-07"
+    },
+    {
+      "id": "p3-e34",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 34,
+      "officialNumber": 34,
+      "titleFr": "D'Arby the Gambler - Partie 1",
+      "titleEn": "D'Arby the Gambler, Part 1",
+      "airDate": "2015-03-14"
+    },
+    {
+      "id": "p3-e35",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 35,
+      "officialNumber": 35,
+      "titleFr": "D'Arby the Gambler - Partie 2",
+      "titleEn": "D'Arby the Gambler, Part 2",
+      "airDate": "2015-03-21"
+    },
+    {
+      "id": "p3-e36",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 36,
+      "officialNumber": 36,
+      "titleFr": "Hol Horse et Mondatta (1)",
+      "titleEn": "Hol Horse and Boingo, Part 1",
+      "airDate": "2015-03-28"
+    },
+    {
+      "id": "p3-e37",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 37,
+      "officialNumber": 37,
+      "titleFr": "Hol Horse et Mondatta (2)",
+      "titleEn": "Hol Horse and Boingo, Part 2",
+      "airDate": "2015-04-04"
+    },
+    {
+      "id": "p3-e38",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 38,
+      "officialNumber": 38,
+      "titleFr": "Pet Shop, le gardien des enfers, partie 1",
+      "titleEn": "The Gatekeeper of Hell, Pet Shop, Part 1",
+      "airDate": "2015-04-11"
+    },
+    {
+      "id": "p3-e39",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 39,
+      "officialNumber": 39,
+      "titleFr": "Pet Shop, le gardien des enfers, partie 2",
+      "titleEn": "The Gatekeeper of Hell, Pet Shop, Part 2",
+      "airDate": "2015-04-18"
+    },
+    {
+      "id": "p3-e40",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 40,
+      "officialNumber": 40,
+      "titleFr": "D'Arby the Player - Partie 1",
+      "titleEn": "D'Arby the Player, Part 1",
+      "airDate": "2015-04-25"
+    },
+    {
+      "id": "p3-e41",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 41,
+      "officialNumber": 41,
+      "titleFr": "D'Arby the Player - Partie 2",
+      "titleEn": "D'Arby the Player, Part 2",
+      "airDate": "2015-05-02"
+    },
+    {
+      "id": "p3-e42",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 42,
+      "officialNumber": 42,
+      "titleFr": null,
+      "titleEn": "The Miasma of the Void, Vanilla Ice, Part 1",
+      "airDate": "2015-05-09"
+    },
+    {
+      "id": "p3-e43",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 43,
+      "officialNumber": 43,
+      "titleFr": null,
+      "titleEn": "The Miasma of the Void, Vanilla Ice, Part 2",
+      "airDate": "2015-05-16"
+    },
+    {
+      "id": "p3-e44",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 44,
+      "officialNumber": 44,
+      "titleFr": null,
+      "titleEn": "The Miasma of the Void, Vanilla Ice, Part 3",
+      "airDate": "2015-05-23"
+    },
+    {
+      "id": "p3-e45",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 45,
+      "officialNumber": 45,
+      "titleFr": "Le Monde de DIO, partie 1",
+      "titleEn": "DIO's World, Part 1",
+      "airDate": "2015-05-30"
+    },
+    {
+      "id": "p3-e46",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 46,
+      "officialNumber": 46,
+      "titleFr": "Le Monde de DIO, partie 2",
+      "titleEn": "DIO's World, Part 2",
+      "airDate": "2015-06-06"
+    },
+    {
+      "id": "p3-e47",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 47,
+      "officialNumber": 47,
+      "titleFr": "Le Monde de DIO, partie 3",
+      "titleEn": "DIO's World, Part 3",
+      "airDate": "2015-06-13"
+    },
+    {
+      "id": "p3-e48",
+      "partNumber": 3,
+      "season": "battle-in-egypt",
+      "numberInPart": 48,
+      "officialNumber": 48,
+      "titleFr": "Un long périple, adieu les amis",
+      "titleEn": "Long Journey Farewell, My Friends",
+      "airDate": "2015-06-20"
+    },
+    {
+      "id": "p4-e1",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 1,
+      "officialNumber": 1,
+      "titleFr": "Jotaro Kujo rencontre Josuke Higashikata !",
+      "titleEn": "Jotaro Kujo! Meets Josuke Higashikata",
+      "airDate": "2016-04-02"
+    },
+    {
+      "id": "p4-e2",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 2,
+      "officialNumber": 2,
+      "titleFr": "Josuke Higashikata rencontre Angelo !",
+      "titleEn": "Josuke Higashikata! Meets Angelo",
+      "airDate": "2016-04-09"
+    },
+    {
+      "id": "p4-e3",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 3,
+      "officialNumber": 3,
+      "titleFr": "Les frères Nijimura - Partie 1",
+      "titleEn": "The Nijimura Brothers, Part 1",
+      "airDate": "2016-04-16"
+    },
+    {
+      "id": "p4-e4",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 4,
+      "officialNumber": 4,
+      "titleFr": "Les frères Nijimura - Partie 2",
+      "titleEn": "The Nijimura Brothers, Part 2",
+      "airDate": "2016-04-23"
+    },
+    {
+      "id": "p4-e5",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 5,
+      "officialNumber": 5,
+      "titleFr": "Les frères Nijimura - Partie 3",
+      "titleEn": "The Nijimura Brothers, Part 3",
+      "airDate": "2016-04-30"
+    },
+    {
+      "id": "p4-e6",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 6,
+      "officialNumber": 6,
+      "titleFr": "Koichi Hirose (Echoes)",
+      "titleEn": "Koichi Hirose (Echoes)",
+      "airDate": "2016-05-07"
+    },
+    {
+      "id": "p4-e7",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 7,
+      "officialNumber": 7,
+      "titleFr": "Toshizaku Hazamada (Surface)",
+      "titleEn": "Toshikazu Hazamada (Surface)",
+      "airDate": "2016-05-14"
+    },
+    {
+      "id": "p4-e8",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 8,
+      "officialNumber": 8,
+      "titleFr": "Yukako Yamagishi est amoureuse - Partie 1",
+      "titleEn": "Yukako Yamagishi Falls in Love, Part 1",
+      "airDate": "2016-05-21"
+    },
+    {
+      "id": "p4-e9",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 9,
+      "officialNumber": 9,
+      "titleFr": "Yukako Yamagishi est amoureuse - Partie 2",
+      "titleEn": "Yukako Yamagishi Falls in Love, Part 2",
+      "airDate": "2016-05-28"
+    },
+    {
+      "id": "p4-e10",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 10,
+      "officialNumber": 10,
+      "titleFr": "Allons manger italien !",
+      "titleEn": "Let's Go Eat Some Italian Food",
+      "airDate": "2016-06-04"
+    },
+    {
+      "id": "p4-e11",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 11,
+      "officialNumber": 11,
+      "titleFr": "Red Hot Chili Pepper - Partie 1",
+      "titleEn": "Red Hot Chili Pepper, Part 1",
+      "airDate": "2016-06-11"
+    },
+    {
+      "id": "p4-e12",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 12,
+      "officialNumber": 12,
+      "titleFr": "Red Hot Chili Pepper - Partie 2",
+      "titleEn": "Red Hot Chili Pepper, Part 2",
+      "airDate": "2016-06-18"
+    },
+    {
+      "id": "p4-e13",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 13,
+      "officialNumber": 13,
+      "titleFr": "On est tombé sur un sale truc !",
+      "titleEn": "We Picked Up Something Crazy!",
+      "airDate": "2016-06-25"
+    },
+    {
+      "id": "p4-e14",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 14,
+      "officialNumber": 14,
+      "titleFr": "Visite chez un mangaka - Partie 1",
+      "titleEn": "Let's Go to the Manga Artist's House, Part 1",
+      "airDate": "2016-07-02"
+    },
+    {
+      "id": "p4-e15",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 15,
+      "officialNumber": 15,
+      "titleFr": "Visite chez un mangaka - Partie 2",
+      "titleEn": "Let's Go to the Manga Artist's House, Part 2",
+      "airDate": "2016-07-09"
+    },
+    {
+      "id": "p4-e16",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 16,
+      "officialNumber": 16,
+      "titleFr": "La chasse est ouverte !",
+      "titleEn": "Let's Go Hunting!",
+      "airDate": "2016-07-16"
+    },
+    {
+      "id": "p4-e17",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 17,
+      "officialNumber": 17,
+      "titleFr": "L'aventure de Rohan Kishibe",
+      "titleEn": "Rohan Kishibe's Adventure",
+      "airDate": "2016-07-23"
+    },
+    {
+      "id": "p4-e18",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 18,
+      "officialNumber": 18,
+      "titleFr": "La moisson de Shigechi - Partie 1",
+      "titleEn": "Shigechi's Harvest, Part 1",
+      "airDate": "2016-07-30"
+    },
+    {
+      "id": "p4-e19",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 19,
+      "officialNumber": 19,
+      "titleFr": "La moisson de Shigechi - Partie 2",
+      "titleEn": "Shigechi's Harvest, Part 2",
+      "airDate": "2016-08-06"
+    },
+    {
+      "id": "p4-e20",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 20,
+      "officialNumber": 20,
+      "titleFr": "Yukako Yamagishi se rêve en Cendrillon",
+      "titleEn": "Yukako Yamagishi Dreams of Cinderella",
+      "airDate": "2016-08-13"
+    },
+    {
+      "id": "p4-e21",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 21,
+      "officialNumber": 21,
+      "titleFr": "Yoshikage Kira veut la tranquillité - Partie 1",
+      "titleEn": "Yoshikage Kira Just Wants to Live Quietly, Part 1",
+      "airDate": "2016-08-20"
+    },
+    {
+      "id": "p4-e22",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 22,
+      "officialNumber": 22,
+      "titleFr": "Yoshikage Kira veut la tranquillité - Partie 2",
+      "titleEn": "Yoshikage Kira Just Wants to Live Quietly, Part 2",
+      "airDate": "2016-08-27"
+    },
+    {
+      "id": "p4-e23",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 23,
+      "officialNumber": 23,
+      "titleFr": "Sheer Heart Attack - Partie 1",
+      "titleEn": "Sheer Heart Attack, Part 1",
+      "airDate": "2016-09-03"
+    },
+    {
+      "id": "p4-e24",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 24,
+      "officialNumber": 24,
+      "titleFr": "Sheer Heart Attack - Partie 2",
+      "titleEn": "Sheer Heart Attack, Part 2",
+      "airDate": "2016-09-10"
+    },
+    {
+      "id": "p4-e25",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 25,
+      "officialNumber": 25,
+      "titleFr": "Atom Heart Father",
+      "titleEn": null,
+      "airDate": "2016-09-17"
+    },
+    {
+      "id": "p4-e26",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 26,
+      "officialNumber": 26,
+      "titleFr": "Pierre-feuille-ciseaux !",
+      "titleEn": "Janken Boy Is Coming!",
+      "airDate": "2016-09-24"
+    },
+    {
+      "id": "p4-e27",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 27,
+      "officialNumber": 27,
+      "titleFr": "Je suis un extraterrestre",
+      "titleEn": "I'm an Alien",
+      "airDate": "2016-10-01"
+    },
+    {
+      "id": "p4-e28",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 28,
+      "officialNumber": 28,
+      "titleFr": "Highway Star - Partie 1",
+      "titleEn": "Highway Star, Part 1",
+      "airDate": "2016-10-08"
+    },
+    {
+      "id": "p4-e29",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 29,
+      "officialNumber": 29,
+      "titleFr": "Highway Star - Partie 2",
+      "titleEn": "Highway Star, Part 2",
+      "airDate": "2016-10-15"
+    },
+    {
+      "id": "p4-e30",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 30,
+      "officialNumber": 30,
+      "titleFr": "Yoshikage Kira attire les chats",
+      "titleEn": "Cats Love Yoshikage Kira",
+      "airDate": "2016-10-22"
+    },
+    {
+      "id": "p4-e31",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 31,
+      "officialNumber": 31,
+      "titleFr": "Jeudi 15 juillet - Partie 1",
+      "titleEn": "July 15th (Thursday), Part 1",
+      "airDate": "2016-10-29"
+    },
+    {
+      "id": "p4-e32",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 32,
+      "officialNumber": 32,
+      "titleFr": "Jeudi 15 juillet - Partie 2",
+      "titleEn": "July 15th (Thursday), Part 2",
+      "airDate": "2016-11-05"
+    },
+    {
+      "id": "p4-e33",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 33,
+      "officialNumber": 33,
+      "titleFr": "Jeudi 15 juillet - Partie 3",
+      "titleEn": "July 15th (Thursday), Part 3",
+      "airDate": "2016-11-12"
+    },
+    {
+      "id": "p4-e34",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 34,
+      "officialNumber": 34,
+      "titleFr": "Jeudi 15 juillet - Partie 4",
+      "titleEn": "July 15th (Thursday), Part 4",
+      "airDate": "2016-11-19"
+    },
+    {
+      "id": "p4-e35",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 35,
+      "officialNumber": 35,
+      "titleFr": "Another One Bites the Dust - Partie 1",
+      "titleEn": "Another One Bites the Dust, Part 1",
+      "airDate": "2016-11-26"
+    },
+    {
+      "id": "p4-e36",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 36,
+      "officialNumber": 36,
+      "titleFr": "Another One Bites the Dust - Partie 2",
+      "titleEn": "Another One Bites the Dust, Part 2",
+      "airDate": "2016-12-03"
+    },
+    {
+      "id": "p4-e37",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 37,
+      "officialNumber": 37,
+      "titleFr": "Crazy Diamond is Unbreakable - Partie 1",
+      "titleEn": "Crazy Diamond is Unbreakable, Part 1",
+      "airDate": "2016-12-10"
+    },
+    {
+      "id": "p4-e38",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 38,
+      "officialNumber": 38,
+      "titleFr": "Crazy Diamond is Unbreakable - Partie 2",
+      "titleEn": "Crazy Diamond is Unbreakable, Part 2",
+      "airDate": "2016-12-17"
+    },
+    {
+      "id": "p4-e39",
+      "partNumber": 4,
+      "season": null,
+      "numberInPart": 39,
+      "officialNumber": 39,
+      "titleFr": "Adieu Morio - La jeunesse au cœur d'or",
+      "titleEn": "Goodbye, Morioh - The Golden Heart",
+      "airDate": "2016-12-24"
+    },
+    {
+      "id": "p5-e1",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 1,
+      "officialNumber": 1,
+      "titleFr": "Golden Wind",
+      "titleEn": "Gold Experience",
+      "airDate": "2018-10-06"
+    },
+    {
+      "id": "p5-e2",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 2,
+      "officialNumber": 2,
+      "titleFr": "Voici venir Bucciarati",
+      "titleEn": "Bucciarati Is Coming",
+      "airDate": "2018-10-13"
+    },
+    {
+      "id": "p5-e3",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 3,
+      "officialNumber": 3,
+      "titleFr": "Le gangster en cage",
+      "titleEn": "Meet the Gangster Behind the Wall",
+      "airDate": "2018-10-20"
+    },
+    {
+      "id": "p5-e4",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 4,
+      "officialNumber": 4,
+      "titleFr": "Initiation",
+      "titleEn": "Joining the Gang",
+      "airDate": "2018-10-27"
+    },
+    {
+      "id": "p5-e5",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 5,
+      "officialNumber": 5,
+      "titleFr": "La fortune de Polpo",
+      "titleEn": "Find Polpo's Fortune!",
+      "airDate": "2018-11-03"
+    },
+    {
+      "id": "p5-e6",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 6,
+      "officialNumber": 6,
+      "titleFr": "Moody Jazz contre-attaque",
+      "titleEn": "Moody Blues' Counterattack",
+      "airDate": "2018-11-10"
+    },
+    {
+      "id": "p5-e7",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 7,
+      "officialNumber": 7,
+      "titleFr": "Les Six bullets entrent en scène - Partie 1",
+      "titleEn": "Sex Pistols Appears, Part 1",
+      "airDate": "2018-11-17"
+    },
+    {
+      "id": "p5-e8",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 8,
+      "officialNumber": 8,
+      "titleFr": "Les Six Bullets entrent en scène - Partie 2",
+      "titleEn": "Sex Pistols Appears, Part 2",
+      "airDate": "2018-11-24"
+    },
+    {
+      "id": "p5-e9",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 9,
+      "officialNumber": 9,
+      "titleFr": "Le premier ordre du boss",
+      "titleEn": "The First Order from the Boss",
+      "airDate": "2018-12-01"
+    },
+    {
+      "id": "p5-e10",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 10,
+      "officialNumber": 10,
+      "titleFr": "L'équipe des tueurs",
+      "titleEn": "The Hitman Team",
+      "airDate": "2018-12-08"
+    },
+    {
+      "id": "p5-e11",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 11,
+      "officialNumber": 11,
+      "titleFr": "Le Li'l Bomber de Narancia",
+      "titleEn": "Narancia's Aerosmith",
+      "airDate": "2018-12-15"
+    },
+    {
+      "id": "p5-e12",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 12,
+      "officialNumber": 12,
+      "titleFr": "Le deuxième ordre du boss",
+      "titleEn": "The Second Order from the Boss",
+      "airDate": "2018-12-22"
+    },
+    {
+      "id": "p5-e13",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 13,
+      "officialNumber": 13,
+      "titleFr": "Mirror Man et Purple Smoke",
+      "titleEn": "Man in the Mirror and Purple Haze",
+      "airDate": "2018-12-29"
+    },
+    {
+      "id": "p5-e14",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 14,
+      "officialNumber": 14,
+      "titleFr": "L'express pour Firenze",
+      "titleEn": "Express Train to Florence",
+      "airDate": "2019-01-12"
+    },
+    {
+      "id": "p5-e15",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 15,
+      "officialNumber": 15,
+      "titleFr": "Thankful Death, partie 1",
+      "titleEn": "The Grateful Dead, Part 1",
+      "airDate": "2019-01-19"
+    },
+    {
+      "id": "p5-e16",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 16,
+      "officialNumber": 16,
+      "titleFr": "Thankful Death, partie 2",
+      "titleEn": "The Grateful Dead, Part 2",
+      "airDate": "2019-01-26"
+    },
+    {
+      "id": "p5-e17",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 17,
+      "officialNumber": 17,
+      "titleFr": "Babyhead",
+      "titleEn": "Baby Face",
+      "airDate": "2019-02-02"
+    },
+    {
+      "id": "p5-e18",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 18,
+      "officialNumber": 18,
+      "titleFr": "Direction Venezia !",
+      "titleEn": "Head to Venice!",
+      "airDate": "2019-02-09"
+    },
+    {
+      "id": "p5-e19",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 19,
+      "officialNumber": 19,
+      "titleFr": "White Ice",
+      "titleEn": "White Album",
+      "airDate": "2019-02-16"
+    },
+    {
+      "id": "p5-e20",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 20,
+      "officialNumber": 20,
+      "titleFr": "Les ultimes instructions du Boss",
+      "titleEn": "The Boss's Last Orders",
+      "airDate": "2019-02-23"
+    },
+    {
+      "id": "p5-e21",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 21,
+      "officialNumber": 21,
+      "titleFr": "Le mystère d'Emperor Crimson",
+      "titleEn": "The Mystery of King Crimson",
+      "airDate": "2019-03-02"
+    },
+    {
+      "id": "p5-e22",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 22,
+      "officialNumber": 22,
+      "titleFr": "\"G\" of Guts",
+      "titleEn": "The \"G\" in Guts",
+      "airDate": "2019-03-16"
+    },
+    {
+      "id": "p5-e23",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 23,
+      "officialNumber": 23,
+      "titleFr": "Crush et Talking Mouth",
+      "titleEn": "Clash and Talking Head",
+      "airDate": "2019-03-23"
+    },
+    {
+      "id": "p5-e24",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 24,
+      "officialNumber": 24,
+      "titleFr": "Notorious Chase",
+      "titleEn": "Notorious B.I.G",
+      "airDate": "2019-03-30"
+    },
+    {
+      "id": "p5-e25",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 25,
+      "officialNumber": 25,
+      "titleFr": "Spicy Lady",
+      "titleEn": "Spice Girl",
+      "airDate": "2019-04-06"
+    },
+    {
+      "id": "p5-e26",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 26,
+      "officialNumber": 26,
+      "titleFr": "Une petite histoire du passé ~ Mon nom est Doppio ~",
+      "titleEn": "A Little Story from the Past (~My Name is Doppio~)",
+      "airDate": "2019-04-13"
+    },
+    {
+      "id": "p5-e27",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 27,
+      "officialNumber": 27,
+      "titleFr": "Emperor Crimson contre Metallic",
+      "titleEn": "King Crimson vs. Metallica",
+      "airDate": "2019-04-20"
+    },
+    {
+      "id": "p5-e28",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 28,
+      "officialNumber": 28,
+      "titleFr": "Le ciel est sur le point de s'effondrer !",
+      "titleEn": "Beneath a Sky on the Verge of Falling",
+      "airDate": "2019-04-27"
+    },
+    {
+      "id": "p5-e29",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 29,
+      "officialNumber": 29,
+      "titleFr": "Destination : le Colisée !",
+      "titleEn": "Destination: Rome! The Colosseum",
+      "airDate": "2019-05-11"
+    },
+    {
+      "id": "p5-e30",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 30,
+      "officialNumber": 30,
+      "titleFr": "Green Tea et Sanctuary - Partie 1",
+      "titleEn": "Green Day and Oasis, Part 1",
+      "airDate": "2019-05-18"
+    },
+    {
+      "id": "p5-e31",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 31,
+      "officialNumber": 31,
+      "titleFr": "Green Tea et Sanctuary - Partie 2",
+      "titleEn": "Green Day and Oasis, Part 2",
+      "airDate": "2019-05-25"
+    },
+    {
+      "id": "p5-e32",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 32,
+      "officialNumber": 32,
+      "titleFr": "Green Tea et Sanctuary - Partie 3",
+      "titleEn": "Green Day and Oasis, Part 3",
+      "airDate": "2019-06-01"
+    },
+    {
+      "id": "p5-e33",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 33,
+      "officialNumber": 33,
+      "titleFr": "Son nom est Diavolo",
+      "titleEn": "His Name is Diavolo",
+      "airDate": "2019-06-08"
+    },
+    {
+      "id": "p5-e34",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 34,
+      "officialNumber": 34,
+      "titleFr": "Requiem résonne en silence - Partie 1",
+      "titleEn": "The Requiem Quietly Plays, Part 1",
+      "airDate": "2019-06-15"
+    },
+    {
+      "id": "p5-e35",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 35,
+      "officialNumber": 35,
+      "titleFr": "Requiem résonne en silence - Partie 2",
+      "titleEn": "The Requiem Quietly Plays, Part 2",
+      "airDate": "2019-06-22"
+    },
+    {
+      "id": "p5-e36",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 36,
+      "officialNumber": 36,
+      "titleFr": "Réapparition de Diavolo !",
+      "titleEn": "Diavolo Surfaces",
+      "airDate": "2019-06-29"
+    },
+    {
+      "id": "p5-e37",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 37,
+      "officialNumber": 37,
+      "titleFr": "Le roi parmi les rois",
+      "titleEn": "King of Kings",
+      "airDate": "2019-07-06"
+    },
+    {
+      "id": "p5-e38",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 38,
+      "officialNumber": 38,
+      "titleFr": "Golden Wind Requiem",
+      "titleEn": "Gold Experience Requiem",
+      "airDate": "2019-07-28"
+    },
+    {
+      "id": "p5-e39",
+      "partNumber": 5,
+      "season": null,
+      "numberInPart": 39,
+      "officialNumber": 39,
+      "titleFr": "Les esclaves endormis",
+      "titleEn": "Sleeping Slaves",
+      "airDate": "2019-07-28"
+    },
+    {
+      "id": "p6-e1",
+      "partNumber": 6,
+      "season": "stone-ocean-1",
+      "numberInPart": 1,
+      "officialNumber": 1,
+      "titleFr": "Stone Ocean",
+      "titleEn": "Stone Ocean",
+      "airDate": "2021-12-01"
+    },
+    {
+      "id": "p6-e2",
+      "partNumber": 6,
+      "season": "stone-ocean-1",
+      "numberInPart": 2,
+      "officialNumber": 2,
+      "titleFr": "Jolyne Kujo, matricule FE40536 (Stone Free)",
+      "titleEn": "Stone Free",
+      "airDate": "2021-12-01"
+    },
+    {
+      "id": "p6-e3",
+      "partNumber": 6,
+      "season": "stone-ocean-1",
+      "numberInPart": 3,
+      "officialNumber": 3,
+      "titleFr": "Le visiteur (1)",
+      "titleEn": "The Visitor (1)",
+      "airDate": "2021-12-01"
+    },
+    {
+      "id": "p6-e4",
+      "partNumber": 6,
+      "season": "stone-ocean-1",
+      "numberInPart": 4,
+      "officialNumber": 4,
+      "titleFr": "Le visiteur (2)",
+      "titleEn": "The Visitor (2)",
+      "airDate": "2021-12-01"
+    },
+    {
+      "id": "p6-e5",
+      "partNumber": 6,
+      "season": "stone-ocean-1",
+      "numberInPart": 5,
+      "officialNumber": 5,
+      "titleFr": "Prisoner of Love",
+      "titleEn": "Prisoner of Love",
+      "airDate": "2021-12-01"
+    },
+    {
+      "id": "p6-e6",
+      "partNumber": 6,
+      "season": "stone-ocean-1",
+      "numberInPart": 6,
+      "officialNumber": 6,
+      "titleFr": "Les vignettes d'Hermes",
+      "titleEn": "Ermes's Stickers",
+      "airDate": "2021-12-01"
+    },
+    {
+      "id": "p6-e7",
+      "partNumber": 6,
+      "season": "stone-ocean-1",
+      "numberInPart": 7,
+      "officialNumber": 7,
+      "titleFr": "Elles sont six !",
+      "titleEn": "There's Six of Us!",
+      "airDate": "2021-12-01"
+    },
+    {
+      "id": "p6-e8",
+      "partNumber": 6,
+      "season": "stone-ocean-1",
+      "numberInPart": 8,
+      "officialNumber": 8,
+      "titleFr": "F.F.",
+      "titleEn": "Foo Fighters",
+      "airDate": "2021-12-01"
+    },
+    {
+      "id": "p6-e9",
+      "partNumber": 6,
+      "season": "stone-ocean-1",
+      "numberInPart": 9,
+      "officialNumber": 9,
+      "titleFr": "Mary Lynn Manson, le recouvreur de dettes",
+      "titleEn": "Debt Collector Marilyn Manson",
+      "airDate": "2021-12-01"
+    },
+    {
+      "id": "p6-e10",
+      "partNumber": 6,
+      "season": "stone-ocean-1",
+      "numberInPart": 10,
+      "officialNumber": 10,
+      "titleFr": "Le plan Savage Guardian (Direction la cour !) (1)",
+      "titleEn": "Operation Savage Garden (Head to the Courtyard!) (1)",
+      "airDate": "2021-12-01"
+    },
+    {
+      "id": "p6-e11",
+      "partNumber": 6,
+      "season": "stone-ocean-1",
+      "numberInPart": 11,
+      "officialNumber": 11,
+      "titleFr": "Le plan Savage Guardian (Direction la cour !) (2)",
+      "titleEn": "Operation Savage Garden (Head to the Courtyard!) (2)",
+      "airDate": "2021-12-01"
+    },
+    {
+      "id": "p6-e12",
+      "partNumber": 6,
+      "season": "stone-ocean-1",
+      "numberInPart": 12,
+      "officialNumber": 12,
+      "titleFr": null,
+      "titleEn": "Torrential Downpour Warning",
+      "airDate": "2021-12-01"
+    },
+    {
+      "id": "p6-e13",
+      "partNumber": 6,
+      "season": "stone-ocean-2",
+      "numberInPart": 13,
+      "officialNumber": 13,
+      "titleFr": null,
+      "titleEn": "Kiss of Love and Revenge (1)",
+      "airDate": "2022-09-01"
+    },
+    {
+      "id": "p6-e14",
+      "partNumber": 6,
+      "season": "stone-ocean-2",
+      "numberInPart": 14,
+      "officialNumber": 14,
+      "titleFr": null,
+      "titleEn": "Kiss of Love and Revenge (2)",
+      "airDate": "2022-09-01"
+    },
+    {
+      "id": "p6-e15",
+      "partNumber": 6,
+      "season": "stone-ocean-2",
+      "numberInPart": 15,
+      "officialNumber": 15,
+      "titleFr": null,
+      "titleEn": "Ultra Security House Unit",
+      "airDate": "2022-09-01"
+    },
+    {
+      "id": "p6-e16",
+      "partNumber": 6,
+      "season": "stone-ocean-2",
+      "numberInPart": 16,
+      "officialNumber": 16,
+      "titleFr": null,
+      "titleEn": "The Secret of Guard Westwood",
+      "airDate": "2022-09-01"
+    },
+    {
+      "id": "p6-e17",
+      "partNumber": 6,
+      "season": "stone-ocean-2",
+      "numberInPart": 17,
+      "officialNumber": 17,
+      "titleFr": null,
+      "titleEn": "Enter the Dragon's Dream",
+      "airDate": "2022-09-01"
+    },
+    {
+      "id": "p6-e18",
+      "partNumber": 6,
+      "season": "stone-ocean-2",
+      "numberInPart": 18,
+      "officialNumber": 18,
+      "titleFr": null,
+      "titleEn": "Enter the Foo Fighters",
+      "airDate": "2022-09-01"
+    },
+    {
+      "id": "p6-e19",
+      "partNumber": 6,
+      "season": "stone-ocean-2",
+      "numberInPart": 19,
+      "officialNumber": 19,
+      "titleFr": null,
+      "titleEn": "Birth of the 'Green'",
+      "airDate": "2022-09-01"
+    },
+    {
+      "id": "p6-e20",
+      "partNumber": 6,
+      "season": "stone-ocean-2",
+      "numberInPart": 20,
+      "officialNumber": 20,
+      "titleFr": null,
+      "titleEn": "F.F. – The Witness",
+      "airDate": "2022-09-01"
+    },
+    {
+      "id": "p6-e21",
+      "partNumber": 6,
+      "season": "stone-ocean-2",
+      "numberInPart": 21,
+      "officialNumber": 21,
+      "titleFr": null,
+      "titleEn": "Awaken",
+      "airDate": "2022-09-01"
+    },
+    {
+      "id": "p6-e22",
+      "partNumber": 6,
+      "season": "stone-ocean-2",
+      "numberInPart": 22,
+      "officialNumber": 22,
+      "titleFr": null,
+      "titleEn": "Time for Heaven! New Moon! New Priest!",
+      "airDate": "2022-09-01"
+    },
+    {
+      "id": "p6-e23",
+      "partNumber": 6,
+      "season": "stone-ocean-2",
+      "numberInPart": 23,
+      "officialNumber": 23,
+      "titleFr": null,
+      "titleEn": "Jail House Lock!",
+      "airDate": "2022-09-01"
+    },
+    {
+      "id": "p6-e24",
+      "partNumber": 6,
+      "season": "stone-ocean-2",
+      "numberInPart": 24,
+      "officialNumber": 24,
+      "titleFr": null,
+      "titleEn": "Jailbreak...",
+      "airDate": "2022-09-01"
+    },
+    {
+      "id": "p6-e25",
+      "partNumber": 6,
+      "season": "stone-ocean-3",
+      "numberInPart": 25,
+      "officialNumber": 25,
+      "titleFr": null,
+      "titleEn": "Bohemian Rhapsody (1)",
+      "airDate": "2022-12-01"
+    },
+    {
+      "id": "p6-e26",
+      "partNumber": 6,
+      "season": "stone-ocean-3",
+      "numberInPart": 26,
+      "officialNumber": 26,
+      "titleFr": null,
+      "titleEn": "Bohemian Rhapsody (2)",
+      "airDate": "2022-12-01"
+    },
+    {
+      "id": "p6-e27",
+      "partNumber": 6,
+      "season": "stone-ocean-3",
+      "numberInPart": 27,
+      "officialNumber": 27,
+      "titleFr": null,
+      "titleEn": "Sky High",
+      "airDate": "2022-12-01"
+    },
+    {
+      "id": "p6-e28",
+      "partNumber": 6,
+      "season": "stone-ocean-3",
+      "numberInPart": 28,
+      "officialNumber": 28,
+      "titleFr": null,
+      "titleEn": "Heaven Is at Hand: Three Days Until the New Moon",
+      "airDate": "2022-12-01"
+    },
+    {
+      "id": "p6-e29",
+      "partNumber": 6,
+      "season": "stone-ocean-3",
+      "numberInPart": 29,
+      "officialNumber": 29,
+      "titleFr": null,
+      "titleEn": "Under World",
+      "airDate": "2022-12-01"
+    },
+    {
+      "id": "p6-e30",
+      "partNumber": 6,
+      "season": "stone-ocean-3",
+      "numberInPart": 30,
+      "officialNumber": 30,
+      "titleFr": null,
+      "titleEn": "Heavy Weather (1)",
+      "airDate": "2022-12-01"
+    },
+    {
+      "id": "p6-e31",
+      "partNumber": 6,
+      "season": "stone-ocean-3",
+      "numberInPart": 31,
+      "officialNumber": 31,
+      "titleFr": null,
+      "titleEn": "Heavy Weather (2)",
+      "airDate": "2022-12-01"
+    },
+    {
+      "id": "p6-e32",
+      "partNumber": 6,
+      "season": "stone-ocean-3",
+      "numberInPart": 32,
+      "officialNumber": 32,
+      "titleFr": null,
+      "titleEn": "Heavy Weather (3)",
+      "airDate": "2022-12-01"
+    },
+    {
+      "id": "p6-e33",
+      "partNumber": 6,
+      "season": "stone-ocean-3",
+      "numberInPart": 33,
+      "officialNumber": 33,
+      "titleFr": null,
+      "titleEn": "Gravity of the New Moon",
+      "airDate": "2022-12-01"
+    },
+    {
+      "id": "p6-e34",
+      "partNumber": 6,
+      "season": "stone-ocean-3",
+      "numberInPart": 34,
+      "officialNumber": 34,
+      "titleFr": null,
+      "titleEn": "C-Moon (1)",
+      "airDate": "2022-12-01"
+    },
+    {
+      "id": "p6-e35",
+      "partNumber": 6,
+      "season": "stone-ocean-3",
+      "numberInPart": 35,
+      "officialNumber": 35,
+      "titleFr": null,
+      "titleEn": "C-Moon (2)",
+      "airDate": "2022-12-01"
+    },
+    {
+      "id": "p6-e36",
+      "partNumber": 6,
+      "season": "stone-ocean-3",
+      "numberInPart": 36,
+      "officialNumber": 36,
+      "titleFr": null,
+      "titleEn": "Made in Heaven (1)",
+      "airDate": "2022-12-01"
+    },
+    {
+      "id": "p6-e37",
+      "partNumber": 6,
+      "season": "stone-ocean-3",
+      "numberInPart": 37,
+      "officialNumber": 37,
+      "titleFr": null,
+      "titleEn": "Made in Heaven (2)",
+      "airDate": "2022-12-01"
+    },
+    {
+      "id": "p6-e38",
+      "partNumber": 6,
+      "season": "stone-ocean-3",
+      "numberInPart": 38,
+      "officialNumber": 38,
+      "titleFr": null,
+      "titleEn": "What a Wonderful World",
+      "airDate": "2022-12-01"
+    },
+    {
+      "id": "p7-e1",
+      "partNumber": 7,
+      "season": null,
+      "numberInPart": 1,
+      "officialNumber": 1,
+      "titleFr": null,
+      "titleEn": "Steel Ball Run",
+      "airDate": "2026-03-19"
+    },
+    {
+      "id": "p7-e2",
+      "partNumber": 7,
+      "season": null,
+      "numberInPart": 2,
+      "officialNumber": 2,
+      "titleFr": null,
+      "titleEn": "The Sheriff's Request to Mountain Tim",
+      "airDate": "2026-09-25"
+    },
+    {
+      "id": "p7-e3",
+      "partNumber": 7,
+      "season": null,
+      "numberInPart": 3,
+      "officialNumber": 3,
+      "titleFr": null,
+      "titleEn": "The Desert-Born Outlaws",
+      "airDate": "2026-10-02"
+    },
+    {
+      "id": "p7-e4",
+      "partNumber": 7,
+      "season": null,
+      "numberInPart": 4,
+      "officialNumber": 4,
+      "titleFr": null,
+      "titleEn": "The Devil's Palm",
+      "airDate": "2026-10-09"
+    },
+    {
+      "id": "p7-e5",
+      "partNumber": 7,
+      "season": null,
+      "numberInPart": 5,
+      "officialNumber": 5,
+      "titleFr": null,
+      "titleEn": "The Terrorist from a Faraway Country",
+      "airDate": "2026-10-16"
+    },
+    {
+      "id": "p7-e6",
+      "partNumber": 7,
+      "season": null,
+      "numberInPart": 6,
+      "officialNumber": 6,
+      "titleFr": null,
+      "titleEn": null,
+      "airDate": "2026-10-23"
+    },
+    {
+      "id": "p7-e7",
+      "partNumber": 7,
+      "season": null,
+      "numberInPart": 7,
+      "officialNumber": 7,
+      "titleFr": null,
+      "titleEn": null,
+      "airDate": "2026-10-30"
+    },
+    {
+      "id": "p7-e8",
+      "partNumber": 7,
+      "season": null,
+      "numberInPart": 8,
+      "officialNumber": 8,
+      "titleFr": null,
+      "titleEn": null,
+      "airDate": "2026-11-06"
+    },
+    {
+      "id": "p7-e9",
+      "partNumber": 7,
+      "season": null,
+      "numberInPart": 9,
+      "officialNumber": 9,
+      "titleFr": null,
+      "titleEn": null,
+      "airDate": "2026-11-13"
+    },
+    {
+      "id": "p7-e10",
+      "partNumber": 7,
+      "season": null,
+      "numberInPart": 10,
+      "officialNumber": 10,
+      "titleFr": null,
+      "titleEn": null,
+      "airDate": "2026-11-20"
+    },
+    {
+      "id": "p7-e11",
+      "partNumber": 7,
+      "season": null,
+      "numberInPart": 11,
+      "officialNumber": 11,
+      "titleFr": null,
+      "titleEn": null,
+      "airDate": "2026-11-27"
+    },
+    {
+      "id": "p7-e12",
+      "partNumber": 7,
+      "season": null,
+      "numberInPart": 12,
+      "officialNumber": 12,
+      "titleFr": null,
+      "titleEn": null,
+      "airDate": "2026-12-04"
+    }
+  ]
+}
