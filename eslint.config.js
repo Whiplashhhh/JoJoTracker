@@ -24,7 +24,7 @@ export default tseslint.config(
     languageOptions: {
       parserOptions: {
         projectService: {
-          allowDefaultProject: ['*.js', '*.mjs', 'apps/*/scripts/*.mjs', 'apps/web/*.ts'],
+          allowDefaultProject: ['*.js', '*.mjs', 'vitest.config.ts', 'apps/*/scripts/*.mjs'],
         },
         tsconfigRootDir: import.meta.dirname,
       },
@@ -42,6 +42,28 @@ export default tseslint.config(
   {
     files: ['**/*.js', '**/*.mjs'],
     ...tseslint.configs.disableTypeChecked,
+  },
+  {
+    // Les scripts Playwright exécutent aussi du code dans la page (page.evaluate).
+    files: ['apps/web/scripts/**/*.mjs'],
+    languageOptions: { globals: { ...globals.browser } },
+  },
+  {
+    // Le front n'importe que le point d'entrée léger du package partagé (sans zod).
+    files: ['apps/web/src/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              name: '@jojo/shared',
+              message: 'Importer @jojo/shared/client (sans zod) côté front.',
+            },
+          ],
+        },
+      ],
+    },
   },
   {
     files: ['apps/web/src/**/*.{ts,tsx}'],

@@ -6,10 +6,7 @@
  */
 import { z } from 'zod';
 
-export const USERNAME_MIN = 3;
-export const USERNAME_MAX = 24;
-export const PASSWORD_MIN = 10;
-export const PASSWORD_MAX = 256;
+import { MAX_BATCH, PASSWORD_MAX, PASSWORD_MIN, USERNAME_MAX, USERNAME_MIN } from './constants.js';
 
 export const usernameSchema = z
   .string()
@@ -135,8 +132,6 @@ export const catalogResponseSchema = z.object({
 });
 export type CatalogResponse = z.infer<typeof catalogResponseSchema>;
 
-export const MAX_BATCH = 500;
-
 export const setWatchedBodySchema = z.object({
   watched: z.boolean(),
   items: z
@@ -183,24 +178,6 @@ export type ExportData = z.infer<typeof exportSchema>;
 // ---------------------------------------------------------------------------
 // Erreurs
 // ---------------------------------------------------------------------------
-
-export const ERROR_CODES = [
-  'BAD_REQUEST',
-  'VALIDATION_ERROR',
-  'UNAUTHENTICATED',
-  'FORBIDDEN',
-  'INVALID_CREDENTIALS',
-  'USERNAME_TAKEN',
-  'INVITE_CODE_INVALID',
-  'SIGNUP_CLOSED',
-  'NOT_FOUND',
-  'NOT_AIRED',
-  'CONFIRMATION_MISMATCH',
-  'RATE_LIMITED',
-  'CSRF',
-  'INTERNAL',
-] as const;
-export type ErrorCode = (typeof ERROR_CODES)[number];
 
 export const apiErrorSchema = z.object({
   error: z.object({

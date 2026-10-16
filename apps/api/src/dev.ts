@@ -36,10 +36,13 @@ if (usePglite) {
   db = pg.db;
 }
 
+// En développement (et pour les tests E2E / captures), limites de débit relâchées.
+const relaxed = { max: 1000, timeWindow: 60_000 };
 const app = await buildApp({
   config,
   db,
   logger: { level: config.logLevel, transport: { target: 'pino-pretty' } },
+  rateLimits: { login: relaxed, register: relaxed, sensitive: relaxed },
 });
 await prepareDatabase(db, app.log);
 await app.listen({ host: '127.0.0.1', port: config.port });
