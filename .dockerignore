@@ -1,0 +1,28 @@
+# Dépendances et artefacts locaux (reconstruits dans l'image)
+**/node_modules
+**/dist
+**/dev-dist
+**/coverage
+**/*.tsbuildinfo
+**/test-results
+**/playwright-report
+apps/api/.data
+.pglite
+
+# Secrets et configuration locale
+.env
+.env.*
+!.env.example
+
+# Outils, VCS, documentation volumineuse
+.git
+.gitignore
+.github
+.vscode
+.idea
+docs/screenshots
+**/*.log
+.DS_Store
+Dockerfile
+docker-compose.yml
+.dockerignore

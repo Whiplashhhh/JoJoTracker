@@ -14,9 +14,21 @@ const envSchema = z
     NODE_ENV: z.enum(['development', 'production', 'test']).default('production'),
     HOST: z.string().default('0.0.0.0'),
     PORT: z.coerce.number().int().min(1).max(65535).default(3000),
-    DATABASE_URL: z
-      .string({ error: 'DATABASE_URL est obligatoire.' })
-      .regex(/^postgres(ql)?:\/\//, 'DATABASE_URL doit commencer par postgres:// ou postgresql://'),
+    DATABASE_URL: z.preprocess(
+      emptyAsUndefined,
+      z
+        .string()
+        .regex(
+          /^postgres(ql)?:\/\//,
+          'DATABASE_URL doit commencer par postgres:// ou postgresql://',
+        )
+        .optional(),
+    ),
+    POSTGRES_HOST: z.preprocess(emptyAsUndefined, z.string().optional()),
+    POSTGRES_PORT: z.coerce.number().int().min(1).max(65535).default(5432),
+    POSTGRES_USER: z.preprocess(emptyAsUndefined, z.string().optional()),
+    POSTGRES_PASSWORD: z.preprocess(emptyAsUndefined, z.string().optional()),
+    POSTGRES_DB: z.preprocess(emptyAsUndefined, z.string().optional()),
     APP_ORIGIN: z
       .url({ error: 'APP_ORIGIN doit être une URL (ex. https://jojo.example.com).' })
       .transform((v) => new URL(v).origin),
@@ -34,11 +46,28 @@ const envSchema = z
     WEB_DIST: z.preprocess(emptyAsUndefined, z.string().optional()),
     TZ_CATALOG: z.string().default('Europe/Paris'),
   })
+  .superRefine((env, ctx) => {
+    if (env.DATABASE_URL) return;
+    for (const key of [
+      'POSTGRES_HOST',
+      'POSTGRES_USER',
+      'POSTGRES_PASSWORD',
+      'POSTGRES_DB',
+    ] as const) {
+      if (!env[key]) {
+        ctx.addIssue({
+          code: 'custom',
+          path: [key],
+          message: `${key} est obligatoire quand DATABASE_URL n'est pas défini.`,
+        });
+      }
+    }
+  })
   .transform((env) => ({
     nodeEnv: env.NODE_ENV,
     host: env.HOST,
     port: env.PORT,
-    databaseUrl: env.DATABASE_URL,
+    databaseUrl: env.DATABASE_URL ?? buildDatabaseUrl(env),
     appOrigin: env.APP_ORIGIN,
     cookieSecure: env.COOKIE_SECURE ?? env.NODE_ENV === 'production',
     allowSignup: env.ALLOW_SIGNUP,
@@ -51,6 +80,20 @@ const envSchema = z
   }));
 
 export type Config = z.output<typeof envSchema>;
+
+/** Construit l'URL de connexion en encodant les identifiants (mots de passe avec + / = …). */
+function buildDatabaseUrl(env: {
+  POSTGRES_HOST?: string | undefined;
+  POSTGRES_PORT: number;
+  POSTGRES_USER?: string | undefined;
+  POSTGRES_PASSWORD?: string | undefined;
+  POSTGRES_DB?: string | undefined;
+}): string {
+  const user = encodeURIComponent(env.POSTGRES_USER ?? '');
+  const password = encodeURIComponent(env.POSTGRES_PASSWORD ?? '');
+  const db = encodeURIComponent(env.POSTGRES_DB ?? '');
+  return `postgres://${user}:${password}@${env.POSTGRES_HOST ?? ''}:${env.POSTGRES_PORT}/${db}`;
+}
 
 function parseTrustProxy(value: string): boolean | string[] {
   const v = value.trim();
