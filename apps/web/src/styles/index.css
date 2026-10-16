@@ -2326,7 +2326,7 @@ html.frozen .burst-badge__value {
   background: var(--yellow);
 }
 
-.strength {
+.robustesse {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -2335,28 +2335,28 @@ html.frozen .burst-badge__value {
   font-weight: 700;
 }
 
-.strength__bars {
+.robustesse__bars {
   display: flex;
   gap: 4px;
 }
 
-.strength__bars span {
+.robustesse__bars span {
   width: 26px;
   height: 10px;
   border: 2px solid var(--ink);
   transform: skewX(-15deg);
 }
 
-.strength--1 .is-on {
+.robustesse--1 .is-on {
   background: #e8303b;
 }
-.strength--2 .is-on {
+.robustesse--2 .is-on {
   background: #f5a623;
 }
-.strength--3 .is-on {
+.robustesse--3 .is-on {
   background: #7ed957;
 }
-.strength--4 .is-on {
+.robustesse--4 .is-on {
   background: #1fbf6b;
 }
 

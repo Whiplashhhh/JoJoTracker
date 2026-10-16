@@ -27,7 +27,9 @@ const config = loadConfig({
 
 let db: Db;
 if (usePglite) {
-  const pg = await createPglite(process.env.PGLITE_DIR ?? join(here, '../.data/pglite'));
+  // PGLITE_DIR=memory : base éphémère (tests E2E).
+  const dir = process.env.PGLITE_DIR ?? join(here, '../.data/pglite');
+  const pg = await createPglite(dir === 'memory' ? undefined : dir);
   await pg.migrate(migrations);
   db = pg.db;
 } else {
@@ -38,9 +40,12 @@ if (usePglite) {
 
 // En développement (et pour les tests E2E / captures), limites de débit relâchées.
 const relaxed = { max: 1000, timeWindow: 60_000 };
+// FAKE_NOW (tests E2E) : horloge figée pour des résultats indépendants de la date réelle.
+const fakeNow = process.env.FAKE_NOW ? new Date(process.env.FAKE_NOW) : null;
 const app = await buildApp({
   config,
   db,
+  ...(fakeNow ? { now: () => new Date(fakeNow) } : {}),
   logger: { level: config.logLevel, transport: { target: 'pino-pretty' } },
   rateLimits: { login: relaxed, register: relaxed, sensitive: relaxed },
 });

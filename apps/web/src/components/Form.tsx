@@ -88,13 +88,13 @@ export function StrengthMeter({ password }: { password: string }) {
   const score = passwordStrength(password);
   if (password.length === 0) return null;
   return (
-    <div className={`strength strength--${score}`} aria-live="polite">
-      <span className="strength__bars" aria-hidden="true">
+    <div className={`robustesse robustesse--${score}`} aria-live="polite">
+      <span className="robustesse__bars" aria-hidden="true">
         {[1, 2, 3, 4].map((i) => (
           <span key={i} className={i <= score ? 'is-on' : ''} />
         ))}
       </span>
-      <span className="strength__label">Robustesse : {PASSWORD_STRENGTH_LABELS[score]}</span>
+      <span className="robustesse__label">Robustesse : {PASSWORD_STRENGTH_LABELS[score]}</span>
     </div>
   );
 }
