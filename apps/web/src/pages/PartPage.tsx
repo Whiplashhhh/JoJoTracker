@@ -11,11 +11,18 @@ import { BottomSheet } from '../components/BottomSheet';
 import { CatalogGate } from '../components/CatalogGate';
 import { EpisodeRow } from '../components/EpisodeRow';
 import { NotFoundPanel } from '../components/Feedback';
+import { Onomatopoeia } from '../components/Onomatopoeia';
 import { BackIcon, MoreIcon } from '../components/Icons';
 import { STATUS_LABELS } from '../lib/labels';
 import { useTracking } from '../features/tracking/context';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { usePageTheme } from '../theme/theme-context';
+
+const HEAD_GLYPHS = [
+  { text: 'ゴ', x: 54, y: 30, size: 30, rotate: 10 },
+  { text: 'ゴ', x: 60, y: 46, size: 22, rotate: 16 },
+  { text: 'ゴ', x: 50, y: 62, size: 18, rotate: 6 },
+] as const;
 
 interface Group {
   key: string;
@@ -54,6 +61,11 @@ function PartContent({ part, catalog }: { part: PartView; catalog: CatalogRespon
     <div className="part">
       <header className="part-head">
         <div className="part-head__lines" aria-hidden="true" />
+        <Onomatopoeia
+          glyphs={HEAD_GLYPHS}
+          tone="accent2"
+          className="onoma--menace part-head__onoma"
+        />
         <span className="part-head__numeral" aria-hidden="true">
           {part.number}
         </span>

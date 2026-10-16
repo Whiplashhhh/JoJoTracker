@@ -29,12 +29,15 @@ export function Skeleton({ variant = 'home' }: { variant?: 'home' | 'part' | 'li
 export function OfflineScreen({ onRetry }: { onRetry?: () => void }) {
   return (
     <div className="state-screen state-screen--offline" role="alert">
+      <div className="state-screen__lines" aria-hidden="true" />
       <Onomatopoeia
         glyphs={[
-          { text: 'ゴ', x: 8, y: 10, size: 64, rotate: -12 },
-          { text: 'ゴ', x: 74, y: 18, size: 48, rotate: 14 },
-          { text: 'ゴ', x: 80, y: 66, size: 70, rotate: 8 },
-          { text: 'ゴ', x: 6, y: 74, size: 40, rotate: -4 },
+          { text: 'ゴ', x: 4, y: 6, size: 72, rotate: -12 },
+          { text: 'ゴ', x: 18, y: 15, size: 48, rotate: -6 },
+          { text: 'ゴ', x: 74, y: 9, size: 58, rotate: 14 },
+          { text: 'ゴ', x: 82, y: 70, size: 84, rotate: 8 },
+          { text: 'ゴ', x: 70, y: 82, size: 46, rotate: 16 },
+          { text: 'ゴ', x: 6, y: 80, size: 54, rotate: -4 },
         ]}
         tone="accent"
         className="onoma--menace"

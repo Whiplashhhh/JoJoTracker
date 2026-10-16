@@ -1244,6 +1244,10 @@ html.frozen .burst-badge__value {
   transform: rotate(-8deg);
 }
 
+.part-head__onoma {
+  z-index: 0;
+}
+
 .part-head__bar {
   position: relative;
   z-index: 2;
@@ -1856,6 +1860,32 @@ html.frozen .burst-badge__value {
   place-items: center;
   min-height: 70dvh;
   padding: calc(var(--safe-top) + 24px) var(--gutter) 24px;
+}
+
+.state-screen--offline {
+  min-height: 100dvh;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.state-screen__lines {
+  position: absolute;
+  inset: -50%;
+  background: repeating-conic-gradient(
+    from 0deg at 50% 50%,
+    rgb(255 46 147 / 0.12) 0deg 2deg,
+    transparent 2deg 8deg
+  );
+  animation: lines-turn 80s linear infinite;
+}
+
+.state-screen--offline .state-panel {
+  box-shadow: 8px 8px 0 var(--th-accent);
+  transform: rotate(-2deg);
+}
+
+.state-screen--offline .state-panel__title {
+  font-size: clamp(44px, 13vw, 64px);
 }
 
 .state-panel {
