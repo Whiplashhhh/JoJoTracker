@@ -1,5 +1,8 @@
 import type { CatalogResponse, MeResponse } from '@jojo/shared/client';
 import { QueryCache, QueryClient, useQuery } from '@tanstack/react-query';
+import { revealStore } from '../lib/reveal-store';
+import { toast } from '../lib/toast-store';
+import { writeTracker } from '../lib/write-tracker';
 import { ApiError, api } from './client';
 
 export const queryKeys = {
@@ -8,14 +11,27 @@ export const queryKeys = {
   catalog: ['catalog'] as const,
 };
 
+/**
+ * Fin de session (déconnexion, expiration, compte supprimé) : on oublie tout ce qui concerne
+ * l'utilisateur sur cet appareil — catalogue (titres vus), titres révélés, toasts « Annuler ».
+ */
+export function clearSession(client: QueryClient): void {
+  revealStore.clear();
+  toast.clear();
+  client.removeQueries({ queryKey: queryKeys.catalog });
+  client.setQueryData(queryKeys.me, null);
+}
+
+export function isUnauthenticated(error: unknown): boolean {
+  return error instanceof ApiError && error.status === 401;
+}
+
 export function createQueryClient(): QueryClient {
   const client: QueryClient = new QueryClient({
     queryCache: new QueryCache({
       onError(error) {
         // Session expirée : on bascule vers l'écran de connexion.
-        if (error instanceof ApiError && error.status === 401) {
-          client.setQueryData(queryKeys.me, null);
-        }
+        if (isUnauthenticated(error)) clearSession(client);
       },
     }),
     defaultOptions: {
@@ -57,6 +73,11 @@ export function useAuthConfig() {
   });
 }
 
+async function fetchCatalog(): Promise<CatalogResponse> {
+  await writeTracker.idle();
+  return api.catalog();
+}
+
 export function useCatalog(enabled = true) {
-  return useQuery<CatalogResponse>({ queryKey: queryKeys.catalog, queryFn: api.catalog, enabled });
+  return useQuery<CatalogResponse>({ queryKey: queryKeys.catalog, queryFn: fetchCatalog, enabled });
 }

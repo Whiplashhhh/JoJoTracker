@@ -4,6 +4,10 @@ import { row, signUp, titleOf } from './helpers';
 test('parcours complet : inscription → cocher → précédents → annuler → partie terminée → déconnexion', async ({
   page,
 }) => {
+  const cspViolations: string[] = [];
+  page.on('console', (msg) => {
+    if (/Content Security Policy|Refused to/i.test(msg.text())) cspViolations.push(msg.text());
+  });
   await signUp(page);
   await expect(page.getByText('épisodes vus').first()).toBeVisible();
 
@@ -18,7 +22,7 @@ test('parcours complet : inscription → cocher → précédents → annuler →
   await expect(row(page, 'p1-e1')).toContainText(titleOf('p1-e1'));
   await expect(row(page, 'p1-e2')).not.toContainText(titleOf('p1-e2'));
   await expect(row(page, 'p1-e2').locator('.censor')).toBeVisible();
-  await expect(page.getByRole('status').filter({ hasText: 'vu !' })).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Notifications' }).getByText(/vu !/)).toBeVisible();
 
   // Cocher l'épisode 5 → proposition de marquer les 3 précédents.
   await row(page, 'p1-e5').getByRole('button', { name: 'Marquer l’épisode 5 comme vu' }).click();
@@ -56,6 +60,7 @@ test('parcours complet : inscription → cocher → précédents → annuler →
   await expect(page).toHaveURL('/connexion');
   await page.goto('/');
   await expect(page).toHaveURL('/connexion');
+  expect(cspViolations).toEqual([]);
 });
 
 test('carte « Reprendre » : « Je l’ai vu ! » coche le prochain épisode sans révéler le suivant', async ({

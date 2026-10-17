@@ -55,16 +55,15 @@ function EpisodeRowImpl({ episode, today, hit, busy, onToggle, onReveal }: Episo
   const titleText = !episode.titleHidden ? episode.title : (revealed ?? null);
 
   return (
-    <motion.li
-      ref={scope}
-      className={`ep ep--${state}`}
-      data-episode={episode.id}
-      {...(episode.titleHidden && revealed === undefined ? longPress.handlers : {})}
-    >
+    <motion.li ref={scope} className={`ep ep--${state}`} data-episode={episode.id}>
       <div className="ep__num" aria-hidden="true">
         <span>{n}</span>
       </div>
-      <div className="ep__main">
+      {/* Appui long limité à la zone de texte : jamais déclenché depuis le sceau. */}
+      <div
+        className="ep__main"
+        {...(episode.titleHidden && revealed === undefined ? longPress.handlers : {})}
+      >
         <p className="ep__label">
           <span>Épisode {n}</span>
           {episode.officialNumber !== n && (
@@ -72,7 +71,9 @@ function EpisodeRowImpl({ episode, today, hit, busy, onToggle, onReveal }: Episo
           )}
         </p>
         <div className="ep__title-zone">
-          <AnimatePresence mode="popLayout" initial={false}>
+          {/* Titre et bande se superposent (grille CSS) pendant la transition : pas de mode
+              « popLayout », qui injecterait une balise <style> refusée par la CSP. */}
+          <AnimatePresence initial={false}>
             {showTitle ? (
               <motion.p
                 key="title"

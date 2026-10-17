@@ -61,21 +61,28 @@ export function Celebration({ partNumber, onClose }: CelebrationProps) {
   const closeButton = useRef<HTMLButtonElement>(null);
   const part = catalog.data?.parts.find((p) => p.number === partNumber);
 
+  const closeRef = useRef(onClose);
+  useEffect(() => {
+    closeRef.current = onClose;
+  }, [onClose]);
+
   useEffect(() => {
     if (partNumber === null) return;
+    const restore = document.activeElement as HTMLElement | null;
     document.documentElement.classList.add('frozen');
     vibrate([30, 60, 30, 60, 120]);
     const focus = setTimeout(() => closeButton.current?.focus(), 60);
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose();
+      if (event.key === 'Escape') closeRef.current();
     };
     document.addEventListener('keydown', onKey);
     return () => {
       clearTimeout(focus);
       document.removeEventListener('keydown', onKey);
       document.documentElement.classList.remove('frozen');
+      restore?.focus();
     };
-  }, [partNumber, onClose]);
+  }, [partNumber]);
 
   return (
     <AnimatePresence>

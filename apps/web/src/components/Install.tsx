@@ -114,10 +114,13 @@ export function InstallEntry() {
     return <p className="profile__hint">L’appli est installée sur cet appareil. ドン！</p>;
   }
   if (state.mode === 'unsupported') {
+    // Navigateur Chromium sans invitation disponible (déjà refusée, ou appli déjà installée).
+    const chromium = 'onbeforeinstallprompt' in window;
     return (
       <p className="profile__hint">
-        Ouvre l’appli dans Chrome (Android) ou Safari (iPhone) pour l’installer sur ton écran
-        d’accueil.
+        {chromium
+          ? 'Pour installer l’appli, ouvre le menu du navigateur (⋮) puis « Installer l’appli » ou « Ajouter à l’écran d’accueil ». Si elle est déjà installée, lance-la depuis ton écran d’accueil.'
+          : 'Ouvre l’appli dans Chrome (Android) ou Safari (iPhone) pour l’installer sur ton écran d’accueil.'}
       </p>
     );
   }

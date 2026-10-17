@@ -53,8 +53,16 @@ function PartContent({ part, catalog }: { part: PartView; catalog: CatalogRespon
     const id = location.hash.slice(1);
     if (!id) return;
     const row = document.querySelector(`[data-episode="${CSS.escape(id)}"]`);
-    row?.scrollIntoView({ block: 'center' });
-    row?.classList.add('ep--focus');
+    if (!row) return;
+    row.scrollIntoView({ block: 'center' });
+    row.classList.add('ep--focus');
+    const timer = setTimeout(() => {
+      row.classList.remove('ep--focus');
+    }, 2500);
+    return () => {
+      clearTimeout(timer);
+      row.classList.remove('ep--focus');
+    };
   }, [location.hash]);
 
   return (

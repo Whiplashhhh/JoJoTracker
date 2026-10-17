@@ -32,6 +32,10 @@ FROM ${NODE_IMAGE} AS runtime
 ENV NODE_ENV=production \
     HOST=0.0.0.0 \
     PORT=3000
+# npm, npx et yarn sont inutiles à l'exécution : on réduit la surface d'attaque.
+RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack \
+      /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack \
+      /usr/local/bin/yarn /usr/local/bin/yarnpkg /opt/yarn-*
 WORKDIR /app
 COPY --from=build --chown=node:node /out/api/package.json ./apps/api/package.json
 COPY --from=build --chown=node:node /out/api/node_modules ./apps/api/node_modules

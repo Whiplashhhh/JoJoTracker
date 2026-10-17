@@ -48,7 +48,9 @@ export function ResumeCard({
   }, [justSeen]);
 
   const step = nextStep(catalog.episodes, catalog.today);
-  const showSeen = seenEpisode?.watched === true && !pending.has(seenEpisode.id);
+  // Affiché dès le tap (état optimiste) : jamais d'aperçu du suivant pendant l'enregistrement.
+  const showSeen = seenEpisode?.watched === true;
+  const revealing = showSeen && pending.has(seenEpisode.id) && seenEpisode.title === null;
 
   let content;
   if (showSeen) {
@@ -64,14 +66,21 @@ export function ResumeCard({
         <h2 className="resume__ep" id="resume-title">
           Épisode {seenEpisode.numberInPart}
         </h2>
-        <motion.p
-          className="resume__title"
-          initial={{ opacity: 0, y: reduce ? 0 : 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.15 }}
-        >
-          {seenEpisode.title ?? 'Titre inconnu'}
-        </motion.p>
+        {revealing ? (
+          <p className="resume__title resume__title--pending" aria-live="polite">
+            Révélation…
+          </p>
+        ) : (
+          <motion.p
+            key="revealed"
+            className="resume__title"
+            initial={{ opacity: 0, y: reduce ? 0 : 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+          >
+            {seenEpisode.title ?? 'Titre inconnu'}
+          </motion.p>
+        )}
         <motion.span
           className="resume__stamp"
           aria-hidden="true"
@@ -84,6 +93,7 @@ export function ResumeCard({
         <button
           type="button"
           className="btn btn--paper btn--block"
+          disabled={revealing}
           onClick={() => {
             setJustSeen(null);
           }}

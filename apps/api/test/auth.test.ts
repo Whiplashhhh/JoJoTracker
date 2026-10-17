@@ -129,6 +129,16 @@ describe('connexion et sessions', () => {
     }
   });
 
+  it('fait tourner la session lors d’une inscription depuis un navigateur déjà connecté', async () => {
+    const client = new Client(env.app);
+    await client.register(uniqueName());
+    const first = client.cookie;
+    await client.register(uniqueName());
+    const stale = new Client(env.app);
+    stale.cookie = first;
+    expect((await stale.get('/api/me')).statusCode).toBe(401);
+  });
+
   it('déconnecte et invalide la session côté serveur', async () => {
     const client = new Client(env.app);
     await client.register(uniqueName());
@@ -210,11 +220,24 @@ describe('profil', () => {
     await client.setWatched(['p1-e1']);
     const [user] = await env.db.select().from(users).where(eq(users.username, name));
 
-    const mismatch = await client.delete('/api/me', { confirmUsername: 'quelqu-un-d-autre' });
+    const mismatch = await client.delete('/api/me', {
+      confirmUsername: 'quelqu-un-d-autre',
+      password: PASSWORD,
+    });
     expect(mismatch.statusCode).toBe(400);
     expect(mismatch.json().error.code).toBe('CONFIRMATION_MISMATCH');
+    const badPassword = await client.delete('/api/me', {
+      confirmUsername: name,
+      password: 'pas-le-bon-mdp',
+    });
+    expect(badPassword.statusCode).toBe(400);
+    expect(badPassword.json().error.code).toBe('INVALID_CREDENTIALS');
+    expect((await client.get('/api/me')).statusCode).toBe(200);
 
-    expect((await client.delete('/api/me', { confirmUsername: name })).statusCode).toBe(204);
+    expect(
+      (await client.delete('/api/me', { confirmUsername: name.toUpperCase(), password: PASSWORD }))
+        .statusCode,
+    ).toBe(204);
     expect((await client.get('/api/me')).statusCode).toBe(401);
     expect((await new Client(env.app).login(name)).statusCode).toBe(401);
     const id = user?.id ?? '';

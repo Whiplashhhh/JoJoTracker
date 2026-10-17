@@ -1,4 +1,4 @@
-import { sql } from 'drizzle-orm';
+import { notInArray, sql } from 'drizzle-orm';
 import type { Db } from '../db/types.js';
 import { episodes, parts, seasons } from '../db/schema.js';
 import type { Catalog } from './schema.js';
@@ -6,6 +6,7 @@ import type { Catalog } from './schema.js';
 /**
  * Upsert idempotent du catalogue en base (parties, saisons, épisodes).
  * Aucun épisode n'est supprimé : un id retiré du fichier reste en base (voir README).
+ * Les saisons, simples libellés, suivent exactement le fichier.
  */
 export async function syncCatalog(db: Db, catalog: Catalog): Promise<{ episodes: number }> {
   await db.transaction(async (tx) => {
@@ -22,6 +23,13 @@ export async function syncCatalog(db: Db, catalog: Catalog): Promise<{ episodes:
         position: i + 1,
       })),
     );
+    // Les saisons retirées du fichier sont supprimées (les épisodes concernés repassent à
+    // `season = NULL` puis sont réaffectés juste après) : sinon leurs positions entreraient
+    // en conflit avec celles du fichier au démarrage suivant.
+    const keys = seasonRows.map((s) => s.key);
+    await (keys.length > 0
+      ? tx.delete(seasons).where(notInArray(seasons.key, keys))
+      : tx.delete(seasons));
     if (seasonRows.length > 0) {
       // Libère temporairement les positions pour éviter les conflits d'unicité lors d'un réordonnancement.
       await tx.update(seasons).set({ position: sql`-${seasons.position}` });

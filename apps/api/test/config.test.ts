@@ -62,6 +62,6 @@ describe('configuration', () => {
   });
 
   it('refuse un code d’invitation trop court', () => {
-    expect(() => loadConfig({ ...BASE, INVITE_CODE: 'abc' })).toThrow(/INVITE_CODE/);
+    expect(() => loadConfig({ ...BASE, INVITE_CODE: 'abcdefg' })).toThrow(/INVITE_CODE/);
   });
 });

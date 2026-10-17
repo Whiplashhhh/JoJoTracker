@@ -15,6 +15,7 @@ export const PASSWORD = 'ora-ora-ora-42';
 
 export const GENEROUS_LIMITS: RateLimits = {
   login: { max: 1000, timeWindow: 60_000 },
+  loginPerUsername: { max: 1000, timeWindow: 60_000 },
   register: { max: 1000, timeWindow: 60_000 },
   sensitive: { max: 1000, timeWindow: 60_000 },
 };

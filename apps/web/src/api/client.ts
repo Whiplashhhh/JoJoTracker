@@ -3,6 +3,7 @@ import type {
   AuthConfig,
   CatalogResponse,
   ChangePasswordBody,
+  DeleteAccountBody,
   LoginBody,
   MeResponse,
   RegisterBody,
@@ -87,7 +88,7 @@ export const api = {
   updateSettings: (body: UpdateSettingsBody) => json<Settings>('PATCH', '/api/me/settings', body),
   changePassword: (body: ChangePasswordBody) => empty('POST', '/api/me/password', body),
   logoutAll: () => empty('POST', '/api/me/logout-all'),
-  deleteAccount: (confirmUsername: string) => empty('DELETE', '/api/me', { confirmUsername }),
+  deleteAccount: (body: DeleteAccountBody) => empty('DELETE', '/api/me', body),
   /** Télécharge l'export JSON (déclenche l'enregistrement du fichier). */
   async downloadExport(): Promise<void> {
     const response = await send('GET', '/api/me/export');

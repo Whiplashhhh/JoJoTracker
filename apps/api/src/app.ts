@@ -13,6 +13,18 @@ import { registerAuthRoutes } from './routes/auth.js';
 import { registerMeRoutes } from './routes/me.js';
 import { registerTrackingRoutes } from './routes/tracking.js';
 
+/**
+ * Clé de limitation : l'IP du client (vue à travers les proxies de confiance), regroupée
+ * par préfixe /64 en IPv6 (un client dispose souvent de tout un /64).
+ */
+export function rateLimitKey(request: { ip: string }): string {
+  const ip = request.ip;
+  if (!ip.includes(':') || ip.startsWith('::ffff:')) return ip;
+  const [head = ''] = ip.split('::');
+  const groups = ip.includes('::') ? head.split(':').filter(Boolean) : ip.split(':');
+  return `${[...groups, '0', '0', '0', '0'].slice(0, 4).join(':')}::/64`;
+}
+
 export interface BuildAppOptions {
   config: Config;
   db: Db;
@@ -50,6 +62,7 @@ export async function buildApp(options: BuildAppOptions): Promise<FastifyInstanc
   await app.register(fastifyCookie);
   await app.register(rateLimit, {
     global: false,
+    keyGenerator: rateLimitKey,
     errorResponseBuilder: (_request, context) =>
       new AppError(
         429,

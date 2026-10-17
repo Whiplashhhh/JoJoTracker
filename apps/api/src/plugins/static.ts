@@ -2,6 +2,7 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import fastifyStatic from '@fastify/static';
 import type { FastifyInstance } from 'fastify';
+import { isApiRequest } from './security.js';
 
 /**
  * Sert le front buildé (même origine que l'API) avec un fallback SPA vers index.html.
@@ -31,13 +32,13 @@ export async function registerStatic(
     if (
       hasWeb &&
       (request.method === 'GET' || request.method === 'HEAD') &&
-      !request.url.startsWith('/api/') &&
-      request.url !== '/api' &&
+      !isApiRequest(undefined, request.url) &&
       accept.includes('text/html')
     ) {
       reply.header('Cache-Control', 'no-cache');
       return reply.type('text/html; charset=utf-8').sendFile('index.html');
     }
+    reply.header('Cache-Control', 'no-store');
     return reply
       .status(404)
       .send({ error: { code: 'NOT_FOUND', message: 'Ressource introuvable.' } });

@@ -36,7 +36,7 @@ const envSchema = z
     ALLOW_SIGNUP: z.preprocess(emptyAsUndefined, booleanFromEnv.default(true)),
     INVITE_CODE: z.preprocess(
       emptyAsUndefined,
-      z.string().min(6, 'INVITE_CODE doit faire au moins 6 caractères.').max(256).optional(),
+      z.string().min(8, 'INVITE_CODE doit faire au moins 8 caractères.').max(256).optional(),
     ),
     SESSION_TTL_DAYS: z.coerce.number().int().min(1).max(365).default(30),
     LOG_LEVEL: z

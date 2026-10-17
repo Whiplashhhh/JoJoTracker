@@ -47,7 +47,7 @@ const app = await buildApp({
   db,
   ...(fakeNow ? { now: () => new Date(fakeNow) } : {}),
   logger: { level: config.logLevel, transport: { target: 'pino-pretty' } },
-  rateLimits: { login: relaxed, register: relaxed, sensitive: relaxed },
+  rateLimits: { login: relaxed, loginPerUsername: relaxed, register: relaxed, sensitive: relaxed },
 });
 await prepareDatabase(db, app.log);
 await app.listen({ host: '127.0.0.1', port: config.port });

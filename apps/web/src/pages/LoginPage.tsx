@@ -1,8 +1,8 @@
 import { PASSWORD_MIN } from '@jojo/shared/client';
 import { useQueryClient } from '@tanstack/react-query';
 import { motion, useReducedMotion } from 'motion/react';
-import { useState, type SubmitEvent } from 'react';
-import { Navigate, useNavigate, useSearchParams } from 'react-router';
+import { useState, type KeyboardEvent, type SubmitEvent } from 'react';
+import { Navigate, useLocation, useNavigate, useSearchParams } from 'react-router';
 import { ApiError, api, errorMessage } from '../api/client';
 import { queryKeys, useAuthConfig, useMe } from '../api/queries';
 import { Field, PasswordInput, StrengthMeter } from '../components/Form';
@@ -29,7 +29,12 @@ export function LoginPage() {
   const config = useAuthConfig();
   const queryClient = useQueryClient();
   const navigate = useNavigate();
+  const location = useLocation();
   const reduce = useReducedMotion() ?? false;
+  // Page demandée avant la redirection (chemin interne uniquement : pas de redirection ouverte).
+  const from = (location.state as { from?: unknown } | null)?.from;
+  const destination =
+    typeof from === 'string' && from.startsWith('/') && !from.startsWith('//') ? from : '/';
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -39,15 +44,30 @@ export function LoginPage() {
   const [formError, setFormError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
-  if (me.data) return <Navigate to="/" replace />;
+  if (me.data) return <Navigate to={destination} replace />;
 
   const signupOpen = config.data?.signupOpen ?? true;
   const inviteRequired = config.data?.inviteRequired ?? false;
+  const sessionDays = config.data?.sessionDays ?? 30;
 
   const switchMode = (next: Mode) => {
     setErrors({});
     setFormError(null);
-    setParams(next === 'signup' ? { mode: 'inscription' } : {}, { replace: true });
+    setParams(next === 'signup' ? { mode: 'inscription' } : {}, {
+      replace: true,
+      state: location.state as unknown,
+    });
+  };
+
+  /** Onglets : flèches gauche/droite pour passer de l'un à l'autre (motif ARIA « tabs »). */
+  const onTabKey = (event: KeyboardEvent) => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    const next: Mode = mode === 'login' ? 'signup' : 'login';
+    switchMode(next);
+    requestAnimationFrame(() => {
+      document.getElementById(`tab-${next}`)?.focus();
+    });
   };
 
   const onSubmit = async (event: SubmitEvent) => {
@@ -70,7 +90,7 @@ export function LoginPage() {
               ...(inviteRequired ? { inviteCode } : {}),
             });
       queryClient.setQueryData(queryKeys.me, result);
-      await navigate('/', { replace: true });
+      await navigate(destination, { replace: true });
     } catch (error) {
       if (error instanceof ApiError && Object.keys(error.fields).length > 0) {
         setErrors(error.fields);
@@ -120,10 +140,13 @@ export function LoginPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.15, type: 'spring', stiffness: 300, damping: 28 }}
       >
-        <div className="tabs" role="tablist" aria-label="Choisir une action">
+        <div className="tabs" role="tablist" aria-label="Choisir une action" onKeyDown={onTabKey}>
           <button
             type="button"
             role="tab"
+            id="tab-login"
+            aria-controls="panel-auth"
+            tabIndex={mode === 'login' ? 0 : -1}
             aria-selected={mode === 'login'}
             className="tabs__tab"
             onClick={() => {
@@ -135,6 +158,9 @@ export function LoginPage() {
           <button
             type="button"
             role="tab"
+            id="tab-signup"
+            aria-controls="panel-auth"
+            tabIndex={mode === 'signup' ? 0 : -1}
             aria-selected={mode === 'signup'}
             className="tabs__tab"
             onClick={() => {
@@ -145,112 +171,115 @@ export function LoginPage() {
           </button>
         </div>
 
-        {mode === 'signup' && !signupOpen ? (
-          <div className="closed">
-            <p className="closed__stamp" aria-hidden="true">
-              FERMÉ
-            </p>
-            <h2 className="closed__title">Les inscriptions sont fermées</h2>
-            <p className="closed__text">
-              Ce tracker est réservé à ses lecteurs actuels. Si tu as déjà un compte, connecte-toi.
-            </p>
-            <button
-              type="button"
-              className="btn btn--accent btn--block"
-              onClick={() => {
-                switchMode('login');
-              }}
-            >
-              Se connecter
-            </button>
-          </div>
-        ) : (
-          <form className="form" onSubmit={(e) => void onSubmit(e)} noValidate>
-            <Field
-              label="Pseudo"
-              error={errors.username}
-              {...(mode === 'signup'
-                ? { hint: '3 à 24 caractères : lettres, chiffres, _ et -' }
-                : {})}
-            >
-              {(id, describedBy) => (
-                <input
-                  id={id}
-                  className="input"
-                  value={username}
-                  onChange={(e) => {
-                    setUsername(e.target.value);
-                  }}
-                  autoComplete="username"
-                  autoCapitalize="none"
-                  autoCorrect="off"
-                  spellCheck={false}
-                  aria-describedby={describedBy}
-                  aria-invalid={Boolean(errors.username)}
-                  required
-                />
-              )}
-            </Field>
-            <Field
-              label="Mot de passe"
-              error={errors.password}
-              {...(mode === 'signup' ? { hint: `${PASSWORD_MIN} caractères minimum` } : {})}
-            >
-              {(id, describedBy) => (
-                <PasswordInput
-                  id={id}
-                  value={password}
-                  onChange={setPassword}
-                  autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
-                  describedBy={describedBy}
-                  invalid={Boolean(errors.password)}
-                />
-              )}
-            </Field>
-            {mode === 'signup' && <StrengthMeter password={password} />}
-            {mode === 'signup' && inviteRequired && (
-              <Field label="Code d’invitation" error={errors.inviteCode}>
+        <div id="panel-auth" role="tabpanel" aria-labelledby={`tab-${mode}`}>
+          {mode === 'signup' && !signupOpen ? (
+            <div className="closed">
+              <p className="closed__stamp" aria-hidden="true">
+                FERMÉ
+              </p>
+              <h2 className="closed__title">Les inscriptions sont fermées</h2>
+              <p className="closed__text">
+                Ce tracker est réservé à ses lecteurs actuels. Si tu as déjà un compte,
+                connecte-toi.
+              </p>
+              <button
+                type="button"
+                className="btn btn--accent btn--block"
+                onClick={() => {
+                  switchMode('login');
+                }}
+              >
+                Se connecter
+              </button>
+            </div>
+          ) : (
+            <form className="form" onSubmit={(e) => void onSubmit(e)} noValidate>
+              <Field
+                label="Pseudo"
+                error={errors.username}
+                {...(mode === 'signup'
+                  ? { hint: '3 à 24 caractères : lettres, chiffres, _ et -' }
+                  : {})}
+              >
                 {(id, describedBy) => (
                   <input
                     id={id}
                     className="input"
-                    value={inviteCode}
+                    value={username}
                     onChange={(e) => {
-                      setInviteCode(e.target.value);
+                      setUsername(e.target.value);
                     }}
-                    autoComplete="off"
+                    autoComplete="username"
                     autoCapitalize="none"
+                    autoCorrect="off"
+                    spellCheck={false}
                     aria-describedby={describedBy}
+                    aria-invalid={Boolean(errors.username)}
                     required
                   />
                 )}
               </Field>
-            )}
-            <label className="check">
-              <input
-                type="checkbox"
-                checked={remember}
-                onChange={(e) => {
-                  setRemember(e.target.checked);
-                }}
-              />
-              <span className="check__box" aria-hidden="true" />
-              <span>Rester connectée (30 jours)</span>
-            </label>
-            {formError && (
-              <p className="form__error" role="alert">
-                {formError}
-              </p>
-            )}
-            <button
-              type="submit"
-              className="btn btn--accent btn--xl btn--block"
-              disabled={submitting}
-            >
-              {submitting ? '…' : mode === 'login' ? 'Entrer' : 'Créer mon compte'}
-            </button>
-          </form>
-        )}
+              <Field
+                label="Mot de passe"
+                error={errors.password}
+                {...(mode === 'signup' ? { hint: `${PASSWORD_MIN} caractères minimum` } : {})}
+              >
+                {(id, describedBy) => (
+                  <PasswordInput
+                    id={id}
+                    value={password}
+                    onChange={setPassword}
+                    autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
+                    describedBy={describedBy}
+                    invalid={Boolean(errors.password)}
+                  />
+                )}
+              </Field>
+              {mode === 'signup' && <StrengthMeter password={password} />}
+              {mode === 'signup' && inviteRequired && (
+                <Field label="Code d’invitation" error={errors.inviteCode}>
+                  {(id, describedBy) => (
+                    <input
+                      id={id}
+                      className="input"
+                      value={inviteCode}
+                      onChange={(e) => {
+                        setInviteCode(e.target.value);
+                      }}
+                      autoComplete="off"
+                      autoCapitalize="none"
+                      aria-describedby={describedBy}
+                      required
+                    />
+                  )}
+                </Field>
+              )}
+              <label className="check">
+                <input
+                  type="checkbox"
+                  checked={remember}
+                  onChange={(e) => {
+                    setRemember(e.target.checked);
+                  }}
+                />
+                <span className="check__box" aria-hidden="true" />
+                <span>Rester connectée ({sessionDays} jours)</span>
+              </label>
+              {formError && (
+                <p className="form__error" role="alert">
+                  {formError}
+                </p>
+              )}
+              <button
+                type="submit"
+                className="btn btn--accent btn--xl btn--block"
+                disabled={submitting}
+              >
+                {submitting ? '…' : mode === 'login' ? 'Entrer' : 'Créer mon compte'}
+              </button>
+            </form>
+          )}
+        </div>
       </motion.section>
       <p className="login__footer">Appli de fan non officielle · aucun spoil garanti</p>
     </div>

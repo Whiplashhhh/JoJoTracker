@@ -12,12 +12,15 @@ export interface RateLimitRule {
 
 export interface RateLimits {
   login: RateLimitRule;
+  /** Échecs de connexion par pseudo, toutes IP confondues (rotation d'adresses). */
+  loginPerUsername: RateLimitRule;
   register: RateLimitRule;
   sensitive: RateLimitRule;
 }
 
 export const DEFAULT_RATE_LIMITS: RateLimits = {
   login: { max: 10, timeWindow: 15 * 60 * 1000 },
+  loginPerUsername: { max: 20, timeWindow: 15 * 60 * 1000 },
   register: { max: 5, timeWindow: 60 * 60 * 1000 },
   sensitive: { max: 30, timeWindow: 15 * 60 * 1000 },
 };

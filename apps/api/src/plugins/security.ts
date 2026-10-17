@@ -5,6 +5,18 @@ import { AppError } from '../lib/errors.js';
 
 const SAFE_METHODS = new Set(['GET', 'HEAD', 'OPTIONS']);
 
+/** Vrai pour une route d'API, y compris une URL encodée (/%61pi/...) ou une 404 sous /api. */
+export function isApiRequest(routeUrl: string | undefined, rawUrl: string): boolean {
+  if (routeUrl?.startsWith('/api')) return true;
+  let path = rawUrl;
+  try {
+    path = decodeURIComponent(rawUrl.split('?')[0] ?? rawUrl);
+  } catch {
+    // URL mal encodée : on garde la forme brute.
+  }
+  return path === '/api' || path.startsWith('/api/');
+}
+
 /** En-têtes de sécurité (CSP stricte, sans aucune ressource externe) et protection CSRF. */
 export async function registerSecurity(app: FastifyInstance, config: Config): Promise<void> {
   await app.register(helmet, {
@@ -36,8 +48,10 @@ export async function registerSecurity(app: FastifyInstance, config: Config): Pr
       : false,
   });
 
+  // Toute requête mutante est contrôlée, quel que soit le chemin (pas de contournement par
+  // encodage du type /%61pi/...). Aucune route mutante n'existe hors de /api.
   app.addHook('onRequest', (request, _reply, done) => {
-    if (SAFE_METHODS.has(request.method) || !request.url.startsWith('/api/')) {
+    if (SAFE_METHODS.has(request.method)) {
       done();
       return;
     }
@@ -60,7 +74,7 @@ export async function registerSecurity(app: FastifyInstance, config: Config): Pr
 
   // Aucune réponse d'API ne doit être mise en cache (fraîcheur + anti-spoil).
   app.addHook('onSend', (request, reply, payload, done) => {
-    if (request.url.startsWith('/api/')) {
+    if (isApiRequest(request.routeOptions.url, request.url)) {
       reply.header('Cache-Control', 'no-store');
       reply.header('Pragma', 'no-cache');
     }

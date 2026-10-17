@@ -121,6 +121,13 @@ export function registerMeRoutes(app: FastifyInstance, ctx: AppContext): void {
       if (input.confirmUsername.toLowerCase() !== user.username.toLowerCase()) {
         throw new AppError(400, 'CONFIRMATION_MISMATCH', 'Le pseudo saisi ne correspond pas.');
       }
+      const [row] = await db
+        .select({ passwordHash: users.passwordHash })
+        .from(users)
+        .where(eq(users.id, user.id));
+      if (!row || !(await verifyPassword(row.passwordHash, input.password))) {
+        throw new AppError(400, 'INVALID_CREDENTIALS', 'Mot de passe incorrect.');
+      }
       // ON DELETE CASCADE : sessions, réglages et épisodes vus partent avec le compte.
       await db.delete(users).where(eq(users.id, user.id));
       ctx.clearSessionCookie(reply);

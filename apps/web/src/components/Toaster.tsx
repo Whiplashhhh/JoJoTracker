@@ -1,9 +1,10 @@
 import { AnimatePresence, motion } from 'motion/react';
-import { toast, useToasts } from '../lib/toast-store';
+import { toast, usePausedToasts, useToasts } from '../lib/toast-store';
 import { CloseIcon } from './Icons';
 
 export function Toaster() {
   const toasts = useToasts();
+  const paused = usePausedToasts();
   return (
     <div className="toaster" role="region" aria-label="Notifications">
       <div aria-live="polite" aria-atomic="false" className="toaster__stack">
@@ -12,8 +13,19 @@ export function Toaster() {
             <motion.div
               key={t.id}
               layout
-              className={`toast toast--${t.tone}`}
-              role={t.tone === 'error' ? 'alert' : 'status'}
+              className={`toast toast--${t.tone} ${paused.has(t.id) ? 'toast--paused' : ''}`}
+              onMouseEnter={() => {
+                toast.pause(t.id);
+              }}
+              onMouseLeave={() => {
+                toast.resume(t.id);
+              }}
+              onFocus={() => {
+                toast.pause(t.id);
+              }}
+              onBlur={() => {
+                toast.resume(t.id);
+              }}
               initial={{ opacity: 0, y: 24, rotate: -2 }}
               animate={{ opacity: 1, y: 0, rotate: 0 }}
               exit={{ opacity: 0, x: 60 }}

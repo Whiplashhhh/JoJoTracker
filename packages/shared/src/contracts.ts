@@ -51,6 +51,8 @@ export type LoginBody = z.input<typeof loginBodySchema>;
 export const authConfigSchema = z.object({
   signupOpen: z.boolean(),
   inviteRequired: z.boolean(),
+  /** Durée (jours) d'une session « rester connectée ». */
+  sessionDays: z.number().int().positive(),
 });
 export type AuthConfig = z.infer<typeof authConfigSchema>;
 
@@ -83,6 +85,7 @@ export type ChangePasswordBody = z.infer<typeof changePasswordBodySchema>;
 
 export const deleteAccountBodySchema = z.object({
   confirmUsername: z.string().trim().min(1).max(64),
+  password: z.string().min(1).max(PASSWORD_MAX),
 });
 export type DeleteAccountBody = z.infer<typeof deleteAccountBodySchema>;
 

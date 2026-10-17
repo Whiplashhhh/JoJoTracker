@@ -23,6 +23,7 @@ services:
       SESSION_TTL_DAYS: ${SESSION_TTL_DAYS:-30}
       LOG_LEVEL: ${LOG_LEVEL:-info}
       TRUST_PROXY: ${TRUST_PROXY:-loopback,linklocal,uniquelocal}
+      TZ_CATALOG: ${TZ_CATALOG:-Europe/Paris}
       DATABASE_URL: ${DATABASE_URL:-}
       POSTGRES_HOST: db
       POSTGRES_USER: ${POSTGRES_USER:-jojo}

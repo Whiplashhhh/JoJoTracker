@@ -26,14 +26,23 @@ function RequireAuth() {
   const me = useMe();
   const location = useLocation();
   if (me.isPending) return <Skeleton />;
-  if (me.isError) {
+  // Des données déjà connues priment sur l'échec d'un rafraîchissement en arrière-plan.
+  if (me.isError && me.data === undefined) {
     return me.error instanceof NetworkError ? (
       <OfflineScreen onRetry={() => void me.refetch()} />
     ) : (
       <ErrorPanel message={errorMessage(me.error)} onRetry={() => void me.refetch()} />
     );
   }
-  if (!me.data) return <Navigate to="/connexion" replace state={{ from: location.pathname }} />;
+  if (!me.data) {
+    return (
+      <Navigate
+        to="/connexion"
+        replace
+        state={{ from: `${location.pathname}${location.search}${location.hash}` }}
+      />
+    );
+  }
   return (
     <TrackingProvider>
       <Outlet />

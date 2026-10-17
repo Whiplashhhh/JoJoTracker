@@ -9,7 +9,7 @@ import {
 import { useQueryClient } from '@tanstack/react-query';
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { api, errorMessage } from '../../api/client';
-import { queryKeys } from '../../api/queries';
+import { clearSession, isUnauthenticated, queryKeys } from '../../api/queries';
 import { BottomSheet } from '../../components/BottomSheet';
 import { Celebration } from '../../components/Celebration';
 import { useOnline } from '../../hooks/useOnline';
@@ -18,6 +18,7 @@ import { plural } from '../../lib/format';
 import { vibrate } from '../../lib/haptics';
 import { revealStore } from '../../lib/reveal-store';
 import { toast } from '../../lib/toast-store';
+import { writeTracker } from '../../lib/write-tracker';
 import { TrackingContext, type Hit, type TrackingApi } from './context';
 
 type Item = SetWatchedBody['items'][number];
@@ -72,32 +73,27 @@ export function TrackingProvider({ children }: { children: ReactNode }) {
     }, 1500);
   }, []);
 
+  /** Compteur par épisode : un épisode reste « en cours » tant qu'une requête le concerne. */
+  const pendingCounts = useRef(new Map<string, number>());
   const setPendingIds = useCallback((ids: readonly string[], on: boolean) => {
-    setPending((prev) => {
-      const next = new Set(prev);
-      for (const id of ids) {
-        if (on) next.add(id);
-        else next.delete(id);
-      }
-      return next;
-    });
+    const counts = pendingCounts.current;
+    for (const id of ids) {
+      const n = (counts.get(id) ?? 0) + (on ? 1 : -1);
+      if (n > 0) counts.set(id, n);
+      else counts.delete(id);
+    }
+    setPending(new Set(counts.keys()));
   }, []);
 
-  /**
-   * Applique un changement de façon optimiste, puis confirme avec le serveur.
-   * En cas d'échec, seuls les épisodes concernés sont restaurés (les autres actions en cours sont préservées).
-   */
-  const apply = useCallback(
-    async (items: Item[], watched: boolean, options: { undo?: boolean; message?: string } = {}) => {
-      if (items.length === 0) return;
-      if (!online) {
-        toast.error('Pas de réseau… impossible de cocher hors ligne.');
-        return;
-      }
-      await queryClient.cancelQueries({ queryKey: queryKeys.catalog });
+  const run = useCallback(
+    async (
+      items: Item[],
+      ids: string[],
+      watched: boolean,
+      options: { undo?: boolean; message?: string },
+    ) => {
       const before = getCatalog();
       if (!before) return;
-      const ids = items.map((i) => i.episodeId);
       const idSet = new Set(ids);
       const previous = before.episodes.filter((e) => idSet.has(e.id));
       const now = new Date().toISOString();
@@ -121,7 +117,6 @@ export function TrackingProvider({ children }: { children: ReactNode }) {
       });
       if (!watched) revealStore.forget(ids);
       markHits(ids, watched);
-      setPendingIds(ids, true);
       if (watched) vibrate(ids.length > 1 ? [12, 40, 12] : 14);
 
       try {
@@ -133,7 +128,9 @@ export function TrackingProvider({ children }: { children: ReactNode }) {
             mergeEpisodes(current, result.episodes),
           );
         }
-        if (watched) {
+        // Célébration seulement pour une vraie progression (pas pour l'annulation d'une remise à zéro),
+        // et une seule à la fois.
+        if (watched && !options.undo) {
           const after = getCatalog();
           const done = after
             ? justCompletedParts(before.episodes, after.episodes, before.today)
@@ -141,7 +138,7 @@ export function TrackingProvider({ children }: { children: ReactNode }) {
           const last = done.at(-1);
           if (last !== undefined) {
             setTimeout(() => {
-              setCelebration(last);
+              setCelebration((current) => current ?? last);
             }, 450);
           }
         }
@@ -169,6 +166,10 @@ export function TrackingProvider({ children }: { children: ReactNode }) {
           });
         }
       } catch (error) {
+        if (isUnauthenticated(error)) {
+          clearSession(queryClient);
+          return;
+        }
         const current = getCatalog();
         if (current) {
           queryClient.setQueryData<CatalogResponse>(
@@ -177,11 +178,38 @@ export function TrackingProvider({ children }: { children: ReactNode }) {
           );
         }
         toast.error(errorMessage(error));
-      } finally {
-        setPendingIds(ids, false);
       }
     },
-    [getCatalog, markHits, online, queryClient, setPendingIds],
+    [getCatalog, markHits, queryClient],
+  );
+
+  /**
+   * Applique un changement de façon optimiste, puis confirme avec le serveur.
+   * En cas d'échec, seuls les épisodes concernés sont restaurés (les autres actions en cours sont préservées).
+   */
+  const apply = useCallback(
+    async (items: Item[], watched: boolean, options: { undo?: boolean; message?: string } = {}) => {
+      if (items.length === 0) return;
+      if (!online) {
+        toast.error('Pas de réseau… impossible de cocher hors ligne.');
+        return;
+      }
+      const ids = items.map((i) => i.episodeId);
+      // Un épisode déjà en cours d'enregistrement ignore les nouveaux taps (pas de requêtes croisées).
+      if (ids.some((id) => pendingCounts.current.has(id))) return;
+      writeTracker.start();
+      setPendingIds(ids, true);
+      try {
+        await queryClient.cancelQueries({ queryKey: queryKeys.catalog });
+        await run(items, ids, watched, options);
+      } finally {
+        setPendingIds(ids, false);
+        writeTracker.end();
+        // Une fois toutes les écritures terminées, on se resynchronise avec le serveur.
+        if (!writeTracker.busy) void queryClient.invalidateQueries({ queryKey: queryKeys.catalog });
+      }
+    },
+    [online, queryClient, run, setPendingIds],
   );
 
   useEffect(() => {
@@ -189,9 +217,12 @@ export function TrackingProvider({ children }: { children: ReactNode }) {
   }, [apply]);
 
   const markSeen = useCallback(
-    (episode: EpisodeView) => {
+    (target: EpisodeView) => {
       const catalog = getCatalog();
-      if (!catalog || !isAired(episode, catalog.today) || episode.watched) return;
+      // État à jour depuis le cache (la prop peut être périmée après un double tap).
+      const episode = catalog?.episodes.find((e) => e.id === target.id);
+      if (!catalog || !episode || !isAired(episode, catalog.today) || episode.watched) return;
+      if (pendingCounts.current.has(episode.id)) return;
       const prev = previousUnwatched(catalog.episodes, episode.id, catalog.today);
       if (prev.length > 0) {
         setSheet({ kind: 'previous', target: episode, previous: prev });
@@ -203,7 +234,8 @@ export function TrackingProvider({ children }: { children: ReactNode }) {
   );
 
   const toggle = useCallback(
-    (episode: EpisodeView) => {
+    (target: EpisodeView) => {
+      const episode = getCatalog()?.episodes.find((e) => e.id === target.id) ?? target;
       if (episode.watched) {
         void apply([{ episodeId: episode.id }], false, {
           message: `${episodeLabel(episode)} décoché.`,
@@ -212,7 +244,7 @@ export function TrackingProvider({ children }: { children: ReactNode }) {
       }
       markSeen(episode);
     },
-    [apply, markSeen],
+    [apply, getCatalog, markSeen],
   );
 
   const requestReveal = useCallback((episode: EpisodeView) => {
@@ -253,14 +285,22 @@ export function TrackingProvider({ children }: { children: ReactNode }) {
     setSheet(null);
   }, []);
 
-  const confirmReveal = useCallback(async (episode: EpisodeView) => {
-    setSheet(null);
-    try {
-      const { title } = await api.reveal(episode.id);
-      revealStore.set(episode.id, title);
-    } catch (error) {
-      toast.error(errorMessage(error));
-    }
+  const confirmReveal = useCallback(
+    async (episode: EpisodeView) => {
+      setSheet(null);
+      try {
+        const { title } = await api.reveal(episode.id);
+        revealStore.set(episode.id, title);
+      } catch (error) {
+        if (isUnauthenticated(error)) clearSession(queryClient);
+        else toast.error(errorMessage(error));
+      }
+    },
+    [queryClient],
+  );
+
+  const closeCelebration = useCallback(() => {
+    setCelebration(null);
   }, []);
 
   const value = useMemo<TrackingApi>(
@@ -401,12 +441,7 @@ export function TrackingProvider({ children }: { children: ReactNode }) {
         )}
       </BottomSheet>
 
-      <Celebration
-        partNumber={celebration}
-        onClose={() => {
-          setCelebration(null);
-        }}
-      />
+      <Celebration partNumber={celebration} onClose={closeCelebration} />
     </TrackingContext.Provider>
   );
 }

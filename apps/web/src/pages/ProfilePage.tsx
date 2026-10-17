@@ -3,7 +3,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useState, type CSSProperties, type SubmitEvent } from 'react';
 import { useNavigate } from 'react-router';
 import { ApiError, api, errorMessage } from '../api/client';
-import { queryKeys, useMe } from '../api/queries';
+import { clearSession, queryKeys, useMe } from '../api/queries';
 import { BottomSheet } from '../components/BottomSheet';
 import { Field, PasswordInput, StrengthMeter } from '../components/Form';
 import { DownloadIcon } from '../components/Icons';
@@ -18,9 +18,7 @@ function useSignOut() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   return async () => {
-    revealStore.clear();
-    queryClient.removeQueries({ queryKey: queryKeys.catalog });
-    queryClient.setQueryData(queryKeys.me, null);
+    clearSession(queryClient);
     await navigate('/connexion', { replace: true });
   };
 }
@@ -38,7 +36,9 @@ function AntiSpoilToggle({ enabled }: { enabled: boolean }) {
           old ? { ...old, settings } : old,
       );
       if (settings.antiSpoil) revealStore.clear();
-      await queryClient.invalidateQueries({ queryKey: queryKeys.catalog });
+      // On jette le catalogue en cache (il peut contenir des titres non vus) : il sera relu
+      // au prochain affichage, déjà filtré par le serveur.
+      queryClient.removeQueries({ queryKey: queryKeys.catalog });
       toast.show({
         message: settings.antiSpoil
           ? 'Mode anti-spoil activé : les titres non vus sont masqués.'
@@ -163,6 +163,8 @@ function ChangePasswordForm() {
 function DeleteAccount({ username }: { username: string }) {
   const [open, setOpen] = useState(false);
   const [confirm, setConfirm] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const signOut = useSignOut();
   const matches = confirm.trim().toLowerCase() === username.toLowerCase();
@@ -170,12 +172,12 @@ function DeleteAccount({ username }: { username: string }) {
   const onDelete = async () => {
     setBusy(true);
     try {
-      await api.deleteAccount(confirm.trim());
+      await api.deleteAccount({ confirmUsername: confirm.trim(), password });
       setOpen(false);
       await signOut();
       toast.show({ message: 'Compte supprimé. サヨナラ…', tone: 'info' });
-    } catch (error) {
-      toast.error(errorMessage(error));
+    } catch (err) {
+      setError(errorMessage(err));
     } finally {
       setBusy(false);
     }
@@ -188,6 +190,8 @@ function DeleteAccount({ username }: { username: string }) {
         className="btn btn--danger btn--block"
         onClick={() => {
           setConfirm('');
+          setPassword('');
+          setError(null);
           setOpen(true);
         }}
       >
@@ -204,7 +208,7 @@ function DeleteAccount({ username }: { username: string }) {
       >
         <p className="sheet__text">
           Ton compte et toute ta progression seront effacés, sans retour possible. Pour confirmer,
-          retape ton pseudo : <strong>{username}</strong>
+          retape ton pseudo (<strong>{username}</strong>) et ton mot de passe.
         </p>
         <Field label="Ton pseudo">
           {(id, describedBy) => (
@@ -222,11 +226,23 @@ function DeleteAccount({ username }: { username: string }) {
             />
           )}
         </Field>
+        <Field label="Ton mot de passe" error={error ?? undefined}>
+          {(id, describedBy) => (
+            <PasswordInput
+              id={id}
+              value={password}
+              onChange={setPassword}
+              autoComplete="current-password"
+              describedBy={describedBy}
+              invalid={error !== null}
+            />
+          )}
+        </Field>
         <div className="sheet__actions">
           <button
             type="button"
             className="btn btn--danger btn--block"
-            disabled={!matches || busy}
+            disabled={!matches || password.length === 0 || busy}
             onClick={() => void onDelete()}
           >
             Supprimer pour toujours

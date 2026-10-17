@@ -766,6 +766,11 @@ button {
   color: var(--yellow);
 }
 
+.resume__title--pending {
+  color: rgb(243 234 211 / 0.6);
+  font-style: italic;
+}
+
 .resume__stamp {
   position: absolute;
   right: 4px;
@@ -1492,8 +1497,12 @@ html.frozen .burst-badge__value {
 
 .ep__title-zone {
   min-height: 30px;
-  display: flex;
+  display: grid;
   align-items: center;
+}
+
+.ep__title-zone > * {
+  grid-area: 1 / 1;
 }
 
 .ep__censor-wrap {
@@ -1765,7 +1774,8 @@ html.frozen .burst-badge__value {
   left: 0;
   right: 0;
   bottom: calc(var(--nav-h) + var(--safe-bottom) + 12px);
-  z-index: 75;
+  /* Au-dessus de la célébration : « Annuler » reste accessible pendant l'animation. */
+  z-index: 95;
   pointer-events: none;
   padding: 0 calc(12px + var(--safe-right)) 0 calc(12px + var(--safe-left));
 }
@@ -1841,6 +1851,10 @@ html.frozen .burst-badge__value {
   background: var(--th-accent);
   transform-origin: left;
   animation: toast-timer linear forwards;
+}
+
+.toast--paused .toast__timer {
+  animation-play-state: paused;
 }
 
 @keyframes toast-timer {

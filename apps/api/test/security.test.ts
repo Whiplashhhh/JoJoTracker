@@ -28,7 +28,43 @@ describe('CSRF (vérification de l’en-tête Origin)', () => {
     const attacker = new Client(env.app, 'https://evil.example');
     attacker.cookie = legit.cookie;
     expect((await attacker.setWatched(['p1-e1'])).statusCode).toBe(403);
-    expect((await attacker.delete('/api/me', { confirmUsername: 'x' })).statusCode).toBe(403);
+    expect(
+      (await attacker.delete('/api/me', { confirmUsername: 'x', password: 'y' })).statusCode,
+    ).toBe(403);
+  });
+
+  it('ne peut pas être contourné par un chemin encodé (/%61pi/...)', async () => {
+    env = await setupApp();
+    const legit = new Client(env.app);
+    await legit.register(uniqueName());
+    for (const url of ['/%61pi/me/settings', '/ap%69/me/settings', '/API/me/settings']) {
+      const res = await env.app.inject({
+        method: 'PATCH',
+        url,
+        headers: { origin: 'https://evil.example', cookie: legit.cookie ?? '' },
+        payload: { antiSpoil: false },
+      });
+      expect(res.statusCode, url).toBe(403);
+    }
+    for (const url of ['/%61pi/me/logout-all', '/%61pi/episodes/p1-e1/reveal']) {
+      const res = await env.app.inject({
+        method: 'POST',
+        url,
+        headers: { origin: 'https://evil.example', cookie: legit.cookie ?? '' },
+      });
+      expect(res.statusCode, url).toBe(403);
+    }
+    expect((await legit.get('/api/me')).json().settings.antiSpoil).toBe(true);
+  });
+
+  it('pose no-store sur les réponses d’API, même via un chemin encodé', async () => {
+    env = await setupApp();
+    const client = new Client(env.app);
+    await client.register(uniqueName());
+    for (const url of ['/%61pi/catalog', '/api/catalog', '/api/inconnu']) {
+      const res = await env.app.inject({ url, headers: { cookie: client.cookie ?? '' } });
+      expect(res.headers['cache-control'], url).toBe('no-store');
+    }
   });
 
   it('accepte un Referer de la bonne origine à défaut d’Origin', async () => {
@@ -74,6 +110,38 @@ describe('limitation de débit', () => {
     expect((await client().register(uniqueName())).statusCode).toBe(429);
   });
 
+  it('limite les échecs par pseudo, même depuis des IP différentes', async () => {
+    env = await setupApp({
+      rateLimits: { ...GENEROUS_LIMITS, loginPerUsername: { max: 3, timeWindow: 60_000 } },
+    });
+    const name = uniqueName();
+    await new Client(env.app).register(name);
+    const attempt = (ip: string, password: string) =>
+      env!.app.inject({
+        method: 'POST',
+        url: '/api/auth/login',
+        remoteAddress: '127.0.0.1',
+        headers: { origin: ORIGIN, 'x-forwarded-for': ip },
+        payload: { username: name, password },
+      });
+    for (let i = 0; i < 3; i++)
+      expect((await attempt(`203.0.113.${i}`, 'faux')).statusCode).toBe(401);
+    expect((await attempt('203.0.113.50', 'faux')).statusCode).toBe(429);
+    // Même le bon mot de passe est refusé pendant le blocage (pas d'oracle).
+    expect((await attempt('203.0.113.51', 'ora-ora-ora-42')).statusCode).toBe(429);
+    env.clock.now = new Date(env.clock.now.getTime() + 61_000);
+    expect((await attempt('203.0.113.52', 'ora-ora-ora-42')).statusCode).toBe(200);
+  });
+
+  it('regroupe les adresses IPv6 par /64', async () => {
+    const { rateLimitKey } = await import('../src/app.js');
+    expect(rateLimitKey({ ip: '2001:db8:1:2:aaaa::1' })).toBe('2001:db8:1:2::/64');
+    expect(rateLimitKey({ ip: '2001:db8:1:2:bbbb:cccc:dddd:eeee' })).toBe('2001:db8:1:2::/64');
+    expect(rateLimitKey({ ip: '2001:db8::1' })).toBe('2001:db8:0:0::/64');
+    expect(rateLimitKey({ ip: '203.0.113.7' })).toBe('203.0.113.7');
+    expect(rateLimitKey({ ip: '::ffff:203.0.113.7' })).toBe('::ffff:203.0.113.7');
+  });
+
   it('utilise la vraie IP derrière un proxy de confiance', async () => {
     env = await setupApp({
       rateLimits: { ...GENEROUS_LIMITS, login: { max: 1, timeWindow: 60_000 } },
@@ -98,6 +166,7 @@ describe('code d’invitation et fermeture des inscriptions', () => {
     expect((await env.app.inject({ url: '/api/auth/config' })).json()).toEqual({
       signupOpen: true,
       inviteRequired: true,
+      sessionDays: 30,
     });
     const without = await new Client(env.app).register(uniqueName());
     expect(without.statusCode).toBe(403);
@@ -117,6 +186,7 @@ describe('code d’invitation et fermeture des inscriptions', () => {
     expect((await env.app.inject({ url: '/api/auth/config' })).json()).toEqual({
       signupOpen: false,
       inviteRequired: false,
+      sessionDays: 30,
     });
     const res = await new Client(env.app).register(uniqueName());
     expect(res.statusCode).toBe(403);
