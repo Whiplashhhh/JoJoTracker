@@ -1,5 +1,5 @@
 import type { CatalogResponse, MeResponse } from '@jojo/shared/client';
-import { QueryCache, QueryClient, useQuery } from '@tanstack/react-query';
+import { QueryCache, QueryClient, useQuery, useQueryClient } from '@tanstack/react-query';
 import { revealStore } from '../lib/reveal-store';
 import { toast } from '../lib/toast-store';
 import { writeTracker } from '../lib/write-tracker';
@@ -16,10 +16,32 @@ export const queryKeys = {
  * l'utilisateur sur cet appareil — catalogue (titres vus), titres révélés, toasts « Annuler ».
  */
 export function clearSession(client: QueryClient): void {
+  forgetUserData(client);
+  client.setQueryData(queryKeys.me, null);
+}
+
+/**
+ * Déconnexion volontaire en cours : la garde d'authentification ne mémorise alors pas la
+ * page courante comme « page demandée » (on revient à l'accueil après la reconnexion).
+ */
+let explicitSignOut = false;
+export const signOutIntent = {
+  mark(): void {
+    explicitSignOut = true;
+  },
+  reset(): void {
+    explicitSignOut = false;
+  },
+  get active(): boolean {
+    return explicitSignOut;
+  },
+};
+
+/** Purge locale de tout ce qui est propre à un compte (sans toucher à `me`). */
+export function forgetUserData(client: QueryClient): void {
   revealStore.clear();
   toast.clear();
   client.removeQueries({ queryKey: queryKeys.catalog });
-  client.setQueryData(queryKeys.me, null);
 }
 
 export function isUnauthenticated(error: unknown): boolean {
@@ -51,13 +73,18 @@ export function createQueryClient(): QueryClient {
 
 /** Profil de l'utilisateur connecté, ou `null` si personne n'est connecté. */
 export function useMe() {
+  const client = useQueryClient();
   return useQuery<MeResponse | null>({
     queryKey: queryKeys.me,
     queryFn: async () => {
       try {
         return await api.me();
       } catch (error) {
-        if (error instanceof ApiError && error.status === 401) return null;
+        if (error instanceof ApiError && error.status === 401) {
+          // Session expirée détectée ici plutôt que par le catalogue : même purge.
+          forgetUserData(client);
+          return null;
+        }
         throw error;
       }
     },

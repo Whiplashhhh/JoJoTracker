@@ -119,7 +119,7 @@ export function InstallEntry() {
     return (
       <p className="profile__hint">
         {chromium
-          ? 'Pour installer l’appli, ouvre le menu du navigateur (⋮) puis « Installer l’appli » ou « Ajouter à l’écran d’accueil ». Si elle est déjà installée, lance-la depuis ton écran d’accueil.'
+          ? 'Pour installer l’appli, ouvre le menu du navigateur (les trois points) puis « Installer l’appli » ou « Ajouter à l’écran d’accueil ». Si elle est déjà installée, lance-la depuis ton écran d’accueil.'
           : 'Ouvre l’appli dans Chrome (Android) ou Safari (iPhone) pour l’installer sur ton écran d’accueil.'}
       </p>
     );

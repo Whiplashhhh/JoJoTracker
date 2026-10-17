@@ -19,7 +19,7 @@ export function titleOf(id: string): string {
 
 export const PASSWORD = 'ora-ora-ora-42!';
 
-export function uniqueUser(prefix = 'Erina'): string {
+export function uniqueUser(prefix = 'Lectrice'): string {
   return `${prefix}_${Date.now().toString(36).slice(-5)}${Math.floor(Math.random() * 100)}`;
 }
 

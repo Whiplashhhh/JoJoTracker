@@ -34,10 +34,17 @@ function escape(value: string): string {
 
 /** Recherche « mot entier » (insensible à la casse) d'un titre et de ses variantes encodées. */
 function patterns(title: string): RegExp[] {
+  const curly = title.replace(/'/g, '’');
+  const straight = title.replace(/’/g, "'");
+  const htmlEscape = (v: string) =>
+    v.replace(/&/g, '&amp;').replace(/'/g, '&#39;').replace(/"/g, '&quot;');
   const variants = new Set([
     title,
+    curly,
+    straight,
     JSON.stringify(title).slice(1, -1),
-    title.replace(/'/g, '&#39;').replace(/&/g, '&amp;'),
+    htmlEscape(title),
+    htmlEscape(straight),
     title.replace(/[^\x20-\x7e]/g, (c) => `\\u${c.charCodeAt(0).toString(16).padStart(4, '0')}`),
   ]);
   return [...variants].map(

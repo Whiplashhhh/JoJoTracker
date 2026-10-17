@@ -1,6 +1,6 @@
 # Spécifications fonctionnelles — JoJo Tracker
 
-Ce document décrit le produit tel qu'il est livré, écran par écran, sans qu'il soit nécessaire de lire le code. Les captures sont dans [`docs/screenshots/`](screenshots/) (préfixe `mobile-` : 375 × 812, `desktop-` : 1280 × 800).
+Ce document décrit le produit tel qu'il est livré, écran par écran, sans qu'il soit nécessaire de lire le code. Les captures sont dans [`docs/screenshots/`](screenshots/) (préfixe `mobile-` : 375 × 812, `desktop-` : 1280 × 800). Pour qu'elles ne spoilent personne, les titres d'épisodes (même vus) y sont remplacés par « Titre de l'épisode » au moment de la capture.
 
 ## 1. Objectif et principes
 
@@ -48,7 +48,8 @@ Premier épisode **diffusé et non vu** dans l'ordre (partie, numéro). S'il n'y
 5. Décocher re-masque immédiatement le titre.
 6. **Mode anti-spoil** (profil) activé par défaut, enregistré en base par utilisateur ; désactivé, le serveur envoie tous les titres.
 7. Seules informations visibles pour un épisode non vu : numéro et nom officiel de la partie, nom officiel de la saison, numéro d'épisode, nombre d'épisodes, date de diffusion. Aucun nom de personnage, de Stand ou de lieu, aucune citation ni image d'épisode nulle part (textes, animations, onomatopées, félicitations, icônes).
-8. Ces garanties sont prouvées par des tests automatisés (JSON brut des réponses, scan de tout le build front, DOM/attributs/console en E2E).
+8. Fin de session (déconnexion, expiration détectée par n'importe quelle requête, nouveau compte sur le même appareil) et réactivation du mode anti-spoil : le catalogue en cache, les titres révélés et les toasts sont purgés ; les autres onglets ouverts sont prévenus (BroadcastChannel).
+9. Ces garanties sont prouvées par des tests automatisés (JSON brut des réponses, scan de tout le build front, DOM/attributs/console en E2E).
 
 Cas particulier : quelques titres sont identiques au nom de leur partie (« Stone Ocean », « Steel Ball Run », « Golden Wind » en VF) ; ces noms étant publics, ils ne constituent pas un spoil.
 

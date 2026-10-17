@@ -27,6 +27,30 @@ const VIEWPORTS = {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+/**
+ * Les captures sont publiées dans la documentation : on y remplace les titres d'épisodes
+ * (même vus) par un libellé générique, pour qu'elles ne spoilent personne.
+ */
+async function maskTitles(context) {
+  await context.addInitScript(() => {
+    const LABEL = 'Titre de l’épisode';
+    const mask = () => {
+      for (const el of document.querySelectorAll(
+        '.ep__title, .resume__title:not(.resume__title--pending)',
+      )) {
+        const node = el.firstChild;
+        if (node && node.nodeType === Node.TEXT_NODE && node.textContent !== LABEL)
+          node.textContent = LABEL;
+      }
+    };
+    new MutationObserver(mask).observe(document, {
+      childList: true,
+      subtree: true,
+      characterData: true,
+    });
+  });
+}
+
 async function api(page, method, path, body) {
   return page.evaluate(
     async ({ method, path, body }) => {
@@ -55,8 +79,9 @@ async function run(kind) {
     timezoneId: 'Europe/Paris',
     reducedMotion: 'no-preference',
   });
+  await maskTitles(context);
   const page = await context.newPage();
-  const user = `Erina_${kind}_${Date.now().toString(36).slice(-4)}`;
+  const user = `Lectrice_${Date.now().toString(36).slice(-3)}`;
 
   // 1. Connexion / inscription
   await page.goto(`${BASE}/connexion`);
@@ -151,12 +176,13 @@ async function runInstallPrompts() {
     viewport: { width: 375, height: 812 },
     locale: 'fr-FR',
   });
+  await maskTitles(ios);
   const page = await ios.newPage();
   await page.addInitScript(() => {
     localStorage.setItem('jojo.visits', '3');
   });
   await page.goto(`${BASE}/connexion`);
-  const user = `Lisa_${Date.now().toString(36).slice(-4)}`;
+  const user = `Fan_${Date.now().toString(36).slice(-4)}`;
   await page.getByRole('tab', { name: 'Inscription' }).click();
   await page.getByLabel('Pseudo').fill(user);
   await page.getByLabel('Mot de passe', { exact: true }).fill('ora-ora-ora-42!');
@@ -174,6 +200,7 @@ async function runInstallPrompts() {
     viewport: { width: 375, height: 812 },
     locale: 'fr-FR',
   });
+  await maskTitles(standalone);
   const p2 = await standalone.newPage();
   await p2.addInitScript(() => {
     Object.defineProperty(navigator, 'standalone', { get: () => true });
@@ -181,7 +208,7 @@ async function runInstallPrompts() {
   });
   await p2.goto(`${BASE}/connexion`);
   await p2.getByRole('tab', { name: 'Inscription' }).click();
-  await p2.getByLabel('Pseudo').fill(`Suzi_${Date.now().toString(36).slice(-4)}`);
+  await p2.getByLabel('Pseudo').fill(`Invitee_${Date.now().toString(36).slice(-4)}`);
   await p2.getByLabel('Mot de passe', { exact: true }).fill('ora-ora-ora-42!');
   await p2.getByRole('button', { name: 'Créer mon compte' }).click();
   await p2.waitForURL(`${BASE}/`);

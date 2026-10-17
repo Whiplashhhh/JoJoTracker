@@ -1,4 +1,6 @@
+import { useQueryClient } from '@tanstack/react-query';
 import { MotionConfig } from 'motion/react';
+import { useEffect } from 'react';
 import {
   createBrowserRouter,
   Navigate,
@@ -8,7 +10,8 @@ import {
 } from 'react-router';
 import { RouterProvider } from 'react-router/dom';
 import { NetworkError, errorMessage } from './api/client';
-import { useMe } from './api/queries';
+import { clearSession, forgetUserData, queryKeys, signOutIntent, useMe } from './api/queries';
+import { sessionChannel } from './lib/session-channel';
 import { AppShell } from './components/AppShell';
 import { ErrorPanel, NotFoundPanel, OfflineScreen, Skeleton } from './components/Feedback';
 import { Toaster } from './components/Toaster';
@@ -39,7 +42,11 @@ function RequireAuth() {
       <Navigate
         to="/connexion"
         replace
-        state={{ from: `${location.pathname}${location.search}${location.hash}` }}
+        state={
+          signOutIntent.active
+            ? { signedOut: true }
+            : { from: `${location.pathname}${location.search}${location.hash}` }
+        }
       />
     );
   }
@@ -50,11 +57,31 @@ function RequireAuth() {
   );
 }
 
+/** Écoute les autres onglets : réglage anti-spoil changé ou déconnexion. */
+function CrossTabSync() {
+  const queryClient = useQueryClient();
+  useEffect(
+    () =>
+      sessionChannel.subscribe((message) => {
+        if (message === 'signed-out') {
+          clearSession(queryClient);
+          void queryClient.invalidateQueries({ queryKey: queryKeys.me });
+        } else {
+          forgetUserData(queryClient);
+          void queryClient.invalidateQueries({ queryKey: queryKeys.me });
+        }
+      }),
+    [queryClient],
+  );
+  return null;
+}
+
 function Root() {
   return (
     <MotionConfig reducedMotion="user">
       <ThemeProvider>
-        <ScrollRestoration />
+        <ScrollRestoration getKey={(location) => location.pathname} />
+        <CrossTabSync />
         <Outlet />
         <Toaster />
         <UpdatePrompt />

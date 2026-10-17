@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from 'motion/react';
 import { useState, type KeyboardEvent, type SubmitEvent } from 'react';
 import { Navigate, useLocation, useNavigate, useSearchParams } from 'react-router';
 import { ApiError, api, errorMessage } from '../api/client';
-import { queryKeys, useAuthConfig, useMe } from '../api/queries';
+import { forgetUserData, queryKeys, signOutIntent, useAuthConfig, useMe } from '../api/queries';
 import { Field, PasswordInput, StrengthMeter } from '../components/Form';
 import { Onomatopoeia } from '../components/Onomatopoeia';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
@@ -32,7 +32,9 @@ export function LoginPage() {
   const location = useLocation();
   const reduce = useReducedMotion() ?? false;
   // Page demandée avant la redirection (chemin interne uniquement : pas de redirection ouverte).
-  const from = (location.state as { from?: unknown } | null)?.from;
+  const navState = location.state as { from?: unknown; signedOut?: unknown } | null;
+  const from = navState?.from;
+  const signedOut = navState?.signedOut === true;
   const destination =
     typeof from === 'string' && from.startsWith('/') && !from.startsWith('//') ? from : '/';
 
@@ -44,7 +46,7 @@ export function LoginPage() {
   const [formError, setFormError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
-  if (me.data) return <Navigate to={destination} replace />;
+  if (me.data && !signedOut) return <Navigate to={destination} replace />;
 
   const signupOpen = config.data?.signupOpen ?? true;
   const inviteRequired = config.data?.inviteRequired ?? false;
@@ -89,6 +91,9 @@ export function LoginPage() {
               remember,
               ...(inviteRequired ? { inviteCode } : {}),
             });
+      // Nouveau compte sur cet appareil : rien du précédent ne doit subsister.
+      forgetUserData(queryClient);
+      signOutIntent.reset();
       queryClient.setQueryData(queryKeys.me, result);
       await navigate(destination, { replace: true });
     } catch (error) {

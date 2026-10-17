@@ -3,7 +3,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useState, type CSSProperties, type SubmitEvent } from 'react';
 import { useNavigate } from 'react-router';
 import { ApiError, api, errorMessage } from '../api/client';
-import { clearSession, queryKeys, useMe } from '../api/queries';
+import { clearSession, queryKeys, signOutIntent, useMe } from '../api/queries';
 import { BottomSheet } from '../components/BottomSheet';
 import { Field, PasswordInput, StrengthMeter } from '../components/Form';
 import { DownloadIcon } from '../components/Icons';
@@ -11,6 +11,7 @@ import { InstallEntry } from '../components/Install';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { formatLongDate } from '../lib/format';
 import { revealStore } from '../lib/reveal-store';
+import { sessionChannel } from '../lib/session-channel';
 import { toast } from '../lib/toast-store';
 import { usePageTheme } from '../theme/theme-context';
 
@@ -18,8 +19,10 @@ function useSignOut() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   return async () => {
+    signOutIntent.mark();
+    await navigate('/connexion', { replace: true, state: { signedOut: true } });
     clearSession(queryClient);
-    await navigate('/connexion', { replace: true });
+    sessionChannel.post('signed-out');
   };
 }
 
@@ -39,6 +42,7 @@ function AntiSpoilToggle({ enabled }: { enabled: boolean }) {
       // On jette le catalogue en cache (il peut contenir des titres non vus) : il sera relu
       // au prochain affichage, déjà filtré par le serveur.
       queryClient.removeQueries({ queryKey: queryKeys.catalog });
+      sessionChannel.post('catalog-stale');
       toast.show({
         message: settings.antiSpoil
           ? 'Mode anti-spoil activé : les titres non vus sont masqués.'

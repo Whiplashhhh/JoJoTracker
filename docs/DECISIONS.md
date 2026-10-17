@@ -125,3 +125,12 @@ Chaque entrée : **contexte → décision → alternatives écartées**.
 ## D24 — Textes
 
 - Interface au féminin là où le cahier des charges l'emploie (« Rester connectée »), tutoiement complice. Aucune réplique, aucun nom de personnage/Stand/lieu dans l'interface : seulement des onomatopées génériques (ゴゴゴ, ドドド, ドン！, バーン) et des katakana neutres (メニュー, プロフィール, サヨナラ).
+
+## D25 — Purge des caches côté navigateur (issue de l'audit anti-spoil)
+
+- **Contexte** : l'audit a montré qu'une session expirée détectée par `/api/me` laissait le catalogue en mémoire ; un autre compte sur le même appareil pouvait entrevoir des titres.
+- **Décision** : toute fin de session, toute connexion/inscription et toute modification du mode anti-spoil purgent catalogue, titres révélés et toasts ; un `BroadcastChannel` prévient les autres onglets. Le catalogue n'est jamais relu pendant une écriture (`write-tracker`). Tests E2E dédiés avec réponses `/api` volontairement ralenties.
+
+## D26 — Captures de la documentation
+
+- Les captures publiées masquent les titres (remplacés à la volée par le script) et utilisent des pseudos neutres : la documentation elle-même ne spoile pas.

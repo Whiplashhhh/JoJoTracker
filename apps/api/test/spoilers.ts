@@ -22,10 +22,12 @@ export function spoilerTitles(): { id: string; title: string }[] {
 /** Variantes d'encodage d'un titre (JSON échappé, entités HTML). */
 export function encodings(title: string): string[] {
   const json = JSON.stringify(title).slice(1, -1);
+  // « & » d'abord, sinon les entités produites seraient elles-mêmes ré-échappées.
   const html = title.replace(/&/g, '&amp;').replace(/'/g, '&#39;').replace(/"/g, '&quot;');
   const unicodeEscaped = title.replace(
     /[^\x20-\x7e]/g,
     (c) => `\\u${c.charCodeAt(0).toString(16).padStart(4, '0')}`,
   );
-  return [...new Set([title, json, html, unicodeEscaped])];
+  const curly = title.replace(/'/g, '’');
+  return [...new Set([title, json, html, unicodeEscaped, curly])];
 }
