@@ -378,8 +378,7 @@ export function ProfilePage() {
           </h2>
           <p>
             JoJo Tracker est une appli de fan, non officielle et sans lien avec les ayants droit.
-            Aucun visuel officiel : tout est dessiné maison. Les titres ne sont envoyés à ton
-            appareil qu’une fois l’épisode vu.
+            Aucun visuel officiel : tout est dessiné maison.
           </p>
           <p className="profile__meta">
             Polices : Anton, Archivo, Dela Gothic One (SIL Open Font License). Version{' '}

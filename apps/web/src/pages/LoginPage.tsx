@@ -122,7 +122,7 @@ export function LoginPage() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }}
         >
-          Suivi sans spoil
+          Carnet de visionnage
         </motion.p>
         <motion.h1
           className="login__title"
@@ -134,7 +134,7 @@ export function LoginPage() {
           <span className="login__title-b">Tracker</span>
         </motion.h1>
         <p className="login__pitch">
-          Coche tes épisodes. Ne découvre <em>jamais</em> un titre avant l’heure.
+          Coche tes épisodes et garde le fil de <em>l’aventure</em>.
         </p>
       </header>
 
@@ -286,7 +286,7 @@ export function LoginPage() {
           )}
         </div>
       </motion.section>
-      <p className="login__footer">Appli de fan non officielle · aucun spoil garanti</p>
+      <p className="login__footer">Appli de fan non officielle</p>
     </div>
   );
 }

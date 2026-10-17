@@ -1,6 +1,6 @@
 # JoJo Tracker ゴゴゴゴ
 
-Suivi d'avancement **sans spoil** de l'anime _JoJo's Bizarre Adventure_, pensé pour le téléphone et installable comme une appli (PWA).
+Suivi d'avancement de l'anime _JoJo's Bizarre Adventure_, pensé pour le téléphone et installable comme une appli (PWA).
 
 On coche les épisodes vus, on sait où on en est… et on ne voit **jamais** le titre d'un épisode pas encore regardé : le serveur ne l'envoie tout simplement pas.
 

@@ -134,3 +134,8 @@ Chaque entrée : **contexte → décision → alternatives écartées**.
 ## D26 — Captures de la documentation
 
 - Les captures publiées masquent les titres (remplacés à la volée par le script) et utilisent des pseudos neutres : la documentation elle-même ne spoile pas.
+
+## D27 — Pas de discours « sans spoil » dans l'interface
+
+- **Contexte** : retour du propriétaire : l'absence de spoil est une règle de fonctionnement, pas un argument à afficher partout.
+- **Décision** : aucune accroche ni mention marketing du type « sans spoil » (écran de connexion, À propos, nom et description du manifest). Restent uniquement les éléments fonctionnels : réglage « Mode anti-spoil » du profil et avertissement « Ça peut spoiler » avant une révélation volontaire (exigés par le cahier des charges).

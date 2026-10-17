@@ -68,7 +68,7 @@ Cas particulier : quelques titres sont identiques au nom de leur partie (« Ston
 Captures : `mobile-connexion.png`, `mobile-inscription.png`, `desktop-connexion.png`.
 
 - **Rôle** : accueil théâtral et accès au compte.
-- **Contenu** : lignes de vitesse en rotation lente, bande magenta tramée en diagonale, katakana « ゴ / ド » menaçants, logotype typographique « JOJO / TRACKER », accroche « Coche tes épisodes. Ne découvre _jamais_ un titre avant l'heure. », case de manga avec deux onglets **Connexion** / **Inscription** (`?mode=inscription`).
+- **Contenu** : lignes de vitesse en rotation lente, bande magenta tramée en diagonale, katakana « ゴ / ド » menaçants, étiquette « Carnet de visionnage », logotype typographique « JOJO / TRACKER », accroche « Coche tes épisodes et garde le fil de _l'aventure_. », case de manga avec deux onglets **Connexion** / **Inscription** (`?mode=inscription`).
 - **Connexion** : pseudo, mot de passe (bouton afficher/masquer), case **« Rester connectée (30 jours) »** cochée par défaut, bouton « Entrer ».
 - **Inscription** : pseudo (3–24 caractères `a-z A-Z 0-9 _ -`, unique sans tenir compte de la casse), mot de passe (10 caractères minimum) avec **indicateur de robustesse** (4 barres : Faible / Correct / Solide / Redoutable), code d'invitation si le serveur l'exige, « Rester connectée », bouton « Créer mon compte ».
 - **États** :
@@ -127,7 +127,7 @@ Titre = pseudo (taille adaptée à sa longueur), « Membre depuis le … ». Cas
 - **Sessions** : « Se déconnecter », « Se déconnecter partout » (toutes les sessions, y compris celle-ci).
 - **Mes données** : « Exporter en JSON » — télécharge `jojo-tracker-<pseudo>-<date>.json` (format `jojo-tracker-export` v1 : pseudo, date de création, réglages, liste des épisodes vus avec partie, numéro et date ; **aucun titre**).
 - **Zone dangereuse** : « Supprimer mon compte » → feuille de confirmation forte : il faut **retaper son pseudo** pour activer « Supprimer pour toujours ». Suppression définitive en cascade (sessions, réglages, progression), retour à la connexion.
-- **À propos** : appli de fan non officielle, aucun visuel officiel, rappel du principe anti-spoil, crédits des polices (OFL), version.
+- **À propos** : appli de fan non officielle, aucun visuel officiel, crédits des polices (OFL), version.
 
 ### 5.6 Écrans d'état
 
@@ -164,7 +164,7 @@ Quand une action fait passer une partie à 100 % : **célébration** (`mobile-ce
 
 ### 7.1 Installation et lancement
 
-- Manifest : nom « JoJo Tracker — suivi sans spoil », nom court « JoJo Tracker », `lang: fr`, `display: standalone`, orientation portrait, `start_url`/`scope`/`id` = `/`, fond et thème `#0E0B10` (identiques à l'écran de démarrage : pas de flash blanc), catégories, icônes 192/512 « any » et « maskable », favicon SVG ; `apple-touch-icon` 180 px ; 11 écrans de démarrage iPhone.
+- Manifest : nom « JoJo Tracker », nom court « JoJo Tracker », `lang: fr`, `display: standalone`, orientation portrait, `start_url`/`scope`/`id` = `/`, fond et thème `#0E0B10` (identiques à l'écran de démarrage : pas de flash blanc), catégories, icônes 192/512 « any » et « maskable », favicon SVG ; `apple-touch-icon` 180 px ; 11 écrans de démarrage iPhone.
 - Raccourcis : **Reprendre** (`/?reprendre=1`) et **Mes parties** (`/parties`).
 - En appli installée : pas de barre d'adresse, barre de statut intégrée (`black-translucent` + `viewport-fit=cover` + zones de sécurité), pas de zoom au double tap, pas de rebond qui dévoile un fond incohérent.
 

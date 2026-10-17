@@ -54,10 +54,10 @@ export default defineConfig({
       includeAssets: ['favicon.svg', 'icons/*.png'],
       manifest: {
         id: '/',
-        name: 'JoJo Tracker — suivi sans spoil',
+        name: 'JoJo Tracker',
         short_name: 'JoJo Tracker',
         description:
-          "Coche les épisodes de JoJo's Bizarre Adventure que tu as vus et sache où tu en es, sans jamais te faire spoiler.",
+          "Coche les épisodes de JoJo's Bizarre Adventure que tu as vus et sache où tu en es.",
         lang: 'fr',
         dir: 'ltr',
         start_url: '/',
