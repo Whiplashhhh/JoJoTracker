@@ -2040,7 +2040,7 @@ html.frozen .burst-badge__value {
   position: relative;
   text-align: center;
   padding: 0 var(--gutter);
-  margin-bottom: 90px;
+  margin-bottom: 200px;
 }
 
 .celebration__kicker {
@@ -2098,7 +2098,8 @@ html.frozen .burst-badge__value {
 .tbc {
   position: absolute;
   left: 3%;
-  bottom: calc(var(--safe-bottom) + 96px);
+  /* Au-dessus du toast « Annuler » (qui reste accessible pendant la célébration). */
+  bottom: calc(var(--safe-bottom) + var(--nav-h) + 96px);
   width: min(96%, 680px);
 }
 
@@ -2857,6 +2858,10 @@ html.frozen .burst-badge__value {
   .tbc {
     left: auto;
     right: 6%;
+  }
+
+  .celebration__close {
+    bottom: 96px;
   }
 }
 
