@@ -27,7 +27,8 @@ Chaque entrée : **contexte → décision → alternatives écartées**.
 
 - **Contexte** : l'environnement de travail n'accédait ni à Wikipédia ni à JoJo Wiki en direct (connexions refusées), seulement à un moteur de recherche.
 - **Décision** : titres et dates reconstitués à partir des extraits de recherche des sources demandées (Wikipédia FR/EN, JoJo Wiki), recoupés entre eux, puis vérifications ciblées (P3 ép. 22, 36–37 ; P2 ép. 26). Toute valeur douteuse ou contradictoire est laissée à `null` (jamais inventée). Détail par partie et liste des URL : `docs/CATALOGUE_SOURCES.md`.
-- **Conséquences** : 27 titres français de _Stone Ocean_ et ceux de _Steel Ball Run_ manquent (le titre anglais est alors affiché) ; la typographie fine (apostrophes, tirets) mérite une relecture humaine. Procédure de correction dans le README.
+- **Conséquences** : la typographie fine (apostrophes, tirets) mérite une relecture humaine. Procédure de correction dans le README.
+- **Mise à jour 2026-10-17** : relecture complète contre Wikipédia FR et EN (désormais lisibles). Titres français complétés pour _Stone Ocean_ (12–38, titres Netflix FR), _Stardust Crusaders_ (22, 42–44) et _Steel Ball Run_ (2–5) ; titres anglais complétés pour _Battle Tendency_ (24–25) ; séparateurs « - Partie n » harmonisés. Restent à `null` : _Steel Ball Run_ 6–12 (« Pas de traduction officielle » sur Wikipédia FR, titres EN non publiés). Orthographes conservées telles que publiées : « Toshizaku » (P4 ép. 7) et « Yellow Temperence » (P3 ép. 9) ; les titres anglais de _Stardust Crusaders_ suivent le style JoJo Wiki (« DIO's Curse »), non celui de Wikipédia EN.
 - **Écarté** : inventer/traduire des titres manquants, scraper des sites non fiables.
 
 ## D05 — Dates de diffusion

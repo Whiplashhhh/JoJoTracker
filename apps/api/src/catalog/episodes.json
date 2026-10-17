@@ -296,7 +296,7 @@
       "numberInPart": 15,
       "officialNumber": 24,
       "titleFr": "Les liens qui unissent JoJo",
-      "titleEn": null,
+      "titleEn": "The Ties That Bind JoJo",
       "airDate": "2013-03-23"
     },
     {
@@ -306,7 +306,7 @@
       "numberInPart": 16,
       "officialNumber": 25,
       "titleFr": "La naissance de l'être suprême !",
-      "titleEn": null,
+      "titleEn": "The Birth of a Superbeing",
       "airDate": "2013-03-30"
     },
     {
@@ -535,7 +535,7 @@
       "season": "stardust-crusaders",
       "numberInPart": 22,
       "officialNumber": 22,
-      "titleFr": null,
+      "titleFr": "Judgement - Partie 2",
       "titleEn": "Judgement, Part 2",
       "airDate": "2014-08-30"
     },
@@ -565,7 +565,7 @@
       "season": "battle-in-egypt",
       "numberInPart": 25,
       "officialNumber": 25,
-      "titleFr": "Iggy (The Fool) et N'Doul (Geb), partie 1",
+      "titleFr": "Iggy (The Fool) et N'Doul (Geb) - Partie 1",
       "titleEn": "\"The Fool\" Iggy and \"Geb\" N'Doul, Part 1",
       "airDate": "2015-01-10"
     },
@@ -575,7 +575,7 @@
       "season": "battle-in-egypt",
       "numberInPart": 26,
       "officialNumber": 26,
-      "titleFr": "Iggy (The Fool) et N'Doul (Geb), partie 2",
+      "titleFr": "Iggy (The Fool) et N'Doul (Geb) - Partie 2",
       "titleEn": "\"The Fool\" Iggy and \"Geb\" N'Doul, Part 2",
       "airDate": "2015-01-17"
     },
@@ -595,7 +595,7 @@
       "season": "battle-in-egypt",
       "numberInPart": 28,
       "officialNumber": 28,
-      "titleFr": "Anubis, partie 1",
+      "titleFr": "Anubis - Partie 1",
       "titleEn": "Anubis, Part 1",
       "airDate": "2015-01-31"
     },
@@ -605,7 +605,7 @@
       "season": "battle-in-egypt",
       "numberInPart": 29,
       "officialNumber": 29,
-      "titleFr": "Anubis, partie 2",
+      "titleFr": "Anubis - Partie 2",
       "titleEn": "Anubis, Part 2",
       "airDate": "2015-02-07"
     },
@@ -615,7 +615,7 @@
       "season": "battle-in-egypt",
       "numberInPart": 30,
       "officialNumber": 30,
-      "titleFr": "Mariah (Bast), partie 1",
+      "titleFr": "Mariah (Bast) - Partie 1",
       "titleEn": "\"Bastet\" Mariah, Part 1",
       "airDate": "2015-02-14"
     },
@@ -625,7 +625,7 @@
       "season": "battle-in-egypt",
       "numberInPart": 31,
       "officialNumber": 31,
-      "titleFr": "Mariah (Bast), partie 2",
+      "titleFr": "Mariah (Bast) - Partie 2",
       "titleEn": "\"Bastet\" Mariah, Part 2",
       "airDate": "2015-02-21"
     },
@@ -695,7 +695,7 @@
       "season": "battle-in-egypt",
       "numberInPart": 38,
       "officialNumber": 38,
-      "titleFr": "Pet Shop, le gardien des enfers, partie 1",
+      "titleFr": "Pet Shop, le gardien des enfers - Partie 1",
       "titleEn": "The Gatekeeper of Hell, Pet Shop, Part 1",
       "airDate": "2015-04-11"
     },
@@ -705,7 +705,7 @@
       "season": "battle-in-egypt",
       "numberInPart": 39,
       "officialNumber": 39,
-      "titleFr": "Pet Shop, le gardien des enfers, partie 2",
+      "titleFr": "Pet Shop, le gardien des enfers - Partie 2",
       "titleEn": "The Gatekeeper of Hell, Pet Shop, Part 2",
       "airDate": "2015-04-18"
     },
@@ -735,7 +735,7 @@
       "season": "battle-in-egypt",
       "numberInPart": 42,
       "officialNumber": 42,
-      "titleFr": null,
+      "titleFr": "Cool Ice, Miasmes d'outre-espace (1)",
       "titleEn": "The Miasma of the Void, Vanilla Ice, Part 1",
       "airDate": "2015-05-09"
     },
@@ -745,7 +745,7 @@
       "season": "battle-in-egypt",
       "numberInPart": 43,
       "officialNumber": 43,
-      "titleFr": null,
+      "titleFr": "Cool Ice, Miasmes d'outre-espace (2)",
       "titleEn": "The Miasma of the Void, Vanilla Ice, Part 2",
       "airDate": "2015-05-16"
     },
@@ -755,7 +755,7 @@
       "season": "battle-in-egypt",
       "numberInPart": 44,
       "officialNumber": 44,
-      "titleFr": null,
+      "titleFr": "Cool Ice, Miasmes d'outre-espace (3)",
       "titleEn": "The Miasma of the Void, Vanilla Ice, Part 3",
       "airDate": "2015-05-23"
     },
@@ -765,7 +765,7 @@
       "season": "battle-in-egypt",
       "numberInPart": 45,
       "officialNumber": 45,
-      "titleFr": "Le Monde de DIO, partie 1",
+      "titleFr": "Le monde de Dio - Partie 1",
       "titleEn": "DIO's World, Part 1",
       "airDate": "2015-05-30"
     },
@@ -775,7 +775,7 @@
       "season": "battle-in-egypt",
       "numberInPart": 46,
       "officialNumber": 46,
-      "titleFr": "Le Monde de DIO, partie 2",
+      "titleFr": "Le monde de Dio - Partie 2",
       "titleEn": "DIO's World, Part 2",
       "airDate": "2015-06-06"
     },
@@ -785,7 +785,7 @@
       "season": "battle-in-egypt",
       "numberInPart": 47,
       "officialNumber": 47,
-      "titleFr": "Le Monde de DIO, partie 3",
+      "titleFr": "Le monde de Dio - Partie 3",
       "titleEn": "DIO's World, Part 3",
       "airDate": "2015-06-13"
     },
@@ -1046,7 +1046,7 @@
       "numberInPart": 25,
       "officialNumber": 25,
       "titleFr": "Atom Heart Father",
-      "titleEn": null,
+      "titleEn": "Atom Heart Father",
       "airDate": "2016-09-17"
     },
     {
@@ -1255,7 +1255,7 @@
       "season": null,
       "numberInPart": 7,
       "officialNumber": 7,
-      "titleFr": "Les Six bullets entrent en scène - Partie 1",
+      "titleFr": "Les Six Bullets entrent en scène - Partie 1",
       "titleEn": "Sex Pistols Appears, Part 1",
       "airDate": "2018-11-17"
     },
@@ -1595,7 +1595,7 @@
       "season": "stone-ocean-1",
       "numberInPart": 2,
       "officialNumber": 2,
-      "titleFr": "Jolyne Kujo, matricule FE40536 (Stone Free)",
+      "titleFr": "Jolyne Kujo, matricule FE40536",
       "titleEn": "Stone Free",
       "airDate": "2021-12-01"
     },
@@ -1695,7 +1695,7 @@
       "season": "stone-ocean-1",
       "numberInPart": 12,
       "officialNumber": 12,
-      "titleFr": null,
+      "titleFr": "Avis de tempête",
       "titleEn": "Torrential Downpour Warning",
       "airDate": "2021-12-01"
     },
@@ -1705,7 +1705,7 @@
       "season": "stone-ocean-2",
       "numberInPart": 13,
       "officialNumber": 13,
-      "titleFr": null,
+      "titleFr": "Baisers d'amour et de vengeance (1)",
       "titleEn": "Kiss of Love and Revenge (1)",
       "airDate": "2022-09-01"
     },
@@ -1715,7 +1715,7 @@
       "season": "stone-ocean-2",
       "numberInPart": 14,
       "officialNumber": 14,
-      "titleFr": null,
+      "titleFr": "Baisers d'amour et de vengeance (2)",
       "titleEn": "Kiss of Love and Revenge (2)",
       "airDate": "2022-09-01"
     },
@@ -1725,7 +1725,7 @@
       "season": "stone-ocean-2",
       "numberInPart": 15,
       "officialNumber": 15,
-      "titleFr": null,
+      "titleFr": "Le quartier disciplinaire",
       "titleEn": "Ultra Security House Unit",
       "airDate": "2022-09-01"
     },
@@ -1735,7 +1735,7 @@
       "season": "stone-ocean-2",
       "numberInPart": 16,
       "officialNumber": 16,
-      "titleFr": null,
+      "titleFr": "Le secret du surveillant Westwood",
       "titleEn": "The Secret of Guard Westwood",
       "airDate": "2022-09-01"
     },
@@ -1745,7 +1745,7 @@
       "season": "stone-ocean-2",
       "numberInPart": 17,
       "officialNumber": 17,
-      "titleFr": null,
+      "titleFr": "Brûle, Dragon's Dream",
       "titleEn": "Enter the Dragon's Dream",
       "airDate": "2022-09-01"
     },
@@ -1755,7 +1755,7 @@
       "season": "stone-ocean-2",
       "numberInPart": 18,
       "officialNumber": 18,
-      "titleFr": null,
+      "titleFr": "Brûle, Foo Fighters",
       "titleEn": "Enter the Foo Fighters",
       "airDate": "2022-09-01"
     },
@@ -1765,7 +1765,7 @@
       "season": "stone-ocean-2",
       "numberInPart": 19,
       "officialNumber": 19,
-      "titleFr": null,
+      "titleFr": "Une naissance « verte »",
       "titleEn": "Birth of the 'Green'",
       "airDate": "2022-09-01"
     },
@@ -1775,7 +1775,7 @@
       "season": "stone-ocean-2",
       "numberInPart": 20,
       "officialNumber": 20,
-      "titleFr": null,
+      "titleFr": "F.F. - Le témoin",
       "titleEn": "F.F. – The Witness",
       "airDate": "2022-09-01"
     },
@@ -1785,7 +1785,7 @@
       "season": "stone-ocean-2",
       "numberInPart": 21,
       "officialNumber": 21,
-      "titleFr": null,
+      "titleFr": "AWAKEN - Le réveil",
       "titleEn": "Awaken",
       "airDate": "2022-09-01"
     },
@@ -1795,7 +1795,7 @@
       "season": "stone-ocean-2",
       "numberInPart": 22,
       "officialNumber": 22,
-      "titleFr": null,
+      "titleFr": "Le temps du paradis. Nouvelle lune, nouveau prêtre !",
       "titleEn": "Time for Heaven! New Moon! New Priest!",
       "airDate": "2022-09-01"
     },
@@ -1805,7 +1805,7 @@
       "season": "stone-ocean-2",
       "numberInPart": 23,
       "officialNumber": 23,
-      "titleFr": null,
+      "titleFr": "Jail House Lock !",
       "titleEn": "Jail House Lock!",
       "airDate": "2022-09-01"
     },
@@ -1815,7 +1815,7 @@
       "season": "stone-ocean-2",
       "numberInPart": 24,
       "officialNumber": 24,
-      "titleFr": null,
+      "titleFr": "L'évasion...",
       "titleEn": "Jailbreak...",
       "airDate": "2022-09-01"
     },
@@ -1825,7 +1825,7 @@
       "season": "stone-ocean-3",
       "numberInPart": 25,
       "officialNumber": 25,
-      "titleFr": null,
+      "titleFr": "Bohemian Ecstatic (1)",
       "titleEn": "Bohemian Rhapsody (1)",
       "airDate": "2022-12-01"
     },
@@ -1835,7 +1835,7 @@
       "season": "stone-ocean-3",
       "numberInPart": 26,
       "officialNumber": 26,
-      "titleFr": null,
+      "titleFr": "Bohemian Ecstatic (2)",
       "titleEn": "Bohemian Rhapsody (2)",
       "airDate": "2022-12-01"
     },
@@ -1845,7 +1845,7 @@
       "season": "stone-ocean-3",
       "numberInPart": 27,
       "officialNumber": 27,
-      "titleFr": null,
+      "titleFr": "Sky Guy",
       "titleEn": "Sky High",
       "airDate": "2022-12-01"
     },
@@ -1855,7 +1855,7 @@
       "season": "stone-ocean-3",
       "numberInPart": 28,
       "officialNumber": 28,
-      "titleFr": null,
+      "titleFr": "Le paradis à portée de main : Trois jours avant la nouvelle lune",
       "titleEn": "Heaven Is at Hand: Three Days Until the New Moon",
       "airDate": "2022-12-01"
     },
@@ -1865,7 +1865,7 @@
       "season": "stone-ocean-3",
       "numberInPart": 29,
       "officialNumber": 29,
-      "titleFr": null,
+      "titleFr": "Netherworld",
       "titleEn": "Under World",
       "airDate": "2022-12-01"
     },
@@ -1875,7 +1875,7 @@
       "season": "stone-ocean-3",
       "numberInPart": 30,
       "officialNumber": 30,
-      "titleFr": null,
+      "titleFr": "Heavy Forecast (1)",
       "titleEn": "Heavy Weather (1)",
       "airDate": "2022-12-01"
     },
@@ -1885,7 +1885,7 @@
       "season": "stone-ocean-3",
       "numberInPart": 31,
       "officialNumber": 31,
-      "titleFr": null,
+      "titleFr": "Heavy Forecast (2)",
       "titleEn": "Heavy Weather (2)",
       "airDate": "2022-12-01"
     },
@@ -1895,7 +1895,7 @@
       "season": "stone-ocean-3",
       "numberInPart": 32,
       "officialNumber": 32,
-      "titleFr": null,
+      "titleFr": "Heavy Forecast (3)",
       "titleEn": "Heavy Weather (3)",
       "airDate": "2022-12-01"
     },
@@ -1905,7 +1905,7 @@
       "season": "stone-ocean-3",
       "numberInPart": 33,
       "officialNumber": 33,
-      "titleFr": null,
+      "titleFr": "La gravité de la nouvelle lune",
       "titleEn": "Gravity of the New Moon",
       "airDate": "2022-12-01"
     },
@@ -1915,7 +1915,7 @@
       "season": "stone-ocean-3",
       "numberInPart": 34,
       "officialNumber": 34,
-      "titleFr": null,
+      "titleFr": "See Moon (1)",
       "titleEn": "C-Moon (1)",
       "airDate": "2022-12-01"
     },
@@ -1925,7 +1925,7 @@
       "season": "stone-ocean-3",
       "numberInPart": 35,
       "officialNumber": 35,
-      "titleFr": null,
+      "titleFr": "See Moon (2)",
       "titleEn": "C-Moon (2)",
       "airDate": "2022-12-01"
     },
@@ -1935,7 +1935,7 @@
       "season": "stone-ocean-3",
       "numberInPart": 36,
       "officialNumber": 36,
-      "titleFr": null,
+      "titleFr": "Maiden Heaven (1)",
       "titleEn": "Made in Heaven (1)",
       "airDate": "2022-12-01"
     },
@@ -1945,7 +1945,7 @@
       "season": "stone-ocean-3",
       "numberInPart": 37,
       "officialNumber": 37,
-      "titleFr": null,
+      "titleFr": "Maiden Heaven (2)",
       "titleEn": "Made in Heaven (2)",
       "airDate": "2022-12-01"
     },
@@ -1955,7 +1955,7 @@
       "season": "stone-ocean-3",
       "numberInPart": 38,
       "officialNumber": 38,
-      "titleFr": null,
+      "titleFr": "Wonderful World",
       "titleEn": "What a Wonderful World",
       "airDate": "2022-12-01"
     },
@@ -1975,7 +1975,7 @@
       "season": null,
       "numberInPart": 2,
       "officialNumber": 2,
-      "titleFr": null,
+      "titleFr": "La requête du Shérif",
       "titleEn": "The Sheriff's Request to Mountain Tim",
       "airDate": "2026-09-25"
     },
@@ -1985,7 +1985,7 @@
       "season": null,
       "numberInPart": 3,
       "officialNumber": 3,
-      "titleFr": null,
+      "titleFr": "Les bandits du désert",
       "titleEn": "The Desert-Born Outlaws",
       "airDate": "2026-10-02"
     },
@@ -1995,7 +1995,7 @@
       "season": null,
       "numberInPart": 4,
       "officialNumber": 4,
-      "titleFr": null,
+      "titleFr": "Devil's Palm",
       "titleEn": "The Devil's Palm",
       "airDate": "2026-10-09"
     },
@@ -2005,7 +2005,7 @@
       "season": null,
       "numberInPart": 5,
       "officialNumber": 5,
-      "titleFr": null,
+      "titleFr": "Le terroriste d'un pays lointain",
       "titleEn": "The Terrorist from a Faraway Country",
       "airDate": "2026-10-16"
     },
